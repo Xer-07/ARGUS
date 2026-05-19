@@ -2,6 +2,15 @@ import json
 with open("thread_embeddings.json", 'r', encoding='utf-8') as f:
     comments = json.load(f)
 
+all_comments = []
+
+def extract_comments(comment):
+    all_comments.append(comment)
+    for reply in comment.get('replies', []):
+        extract_comments(reply)
+
+for comment in comments:
+        extract_comments(comment)
 
 def calculate_influence(comment):
     score = comment['score']
@@ -12,13 +21,10 @@ def calculate_influence(comment):
     influence = (score * 0.4) + (reply_count * 0.3) + (depth_penalty * 0.3)
     comment['influence'] = influence
 
-    for reply in comment.get('replies', []):
-        calculate_influence(reply)
-
-for comment in comments:
+for comment in all_comments:
     calculate_influence(comment)
 
-srt_comm = sorted(comments, key = lambda x: x['influence'], reverse = True)
+srt_comm = sorted(all_comments, key = lambda x: x['influence'], reverse = True)
 
 for comment in srt_comm[:5]:
     print(comment['influence'], "----->", comment['body'])
