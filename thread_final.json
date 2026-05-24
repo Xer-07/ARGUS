@@ -397,7 +397,8 @@
                     0.0714726448059082
                 ],
                 "cluster": 2,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.9179455421916096
             },
             {
                 "author": "Potential-Box6221",
@@ -791,7 +792,8 @@
                     -0.017968997359275818
                 ],
                 "cluster": 2,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.747883071034201
             },
             {
                 "author": "[deleted]",
@@ -1185,7 +1187,8 @@
                     0.011267654597759247
                 ],
                 "cluster": 3,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.5929770000667853
             },
             {
                 "author": "Competitive_Work_249",
@@ -1579,7 +1582,8 @@
                     -0.08359714597463608
                 ],
                 "cluster": 3,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.686965210618897
             },
             {
                 "author": "Scorched_Scorpion",
@@ -1973,7 +1977,8 @@
                     0.00886273942887783
                 ],
                 "cluster": 3,
-                "influence": -4.65
+                "influence": -4.65,
+                "outlier_score": 0.7159889498051759
             },
             {
                 "author": "Andheri_Gufa69",
@@ -2367,7 +2372,8 @@
                     0.03436786308884621
                 ],
                 "cluster": 3,
-                "influence": 22.1
+                "influence": 22.1,
+                "outlier_score": 0.632064493966861
             },
             {
                 "author": "Andheri_Gufa69",
@@ -2761,7 +2767,8 @@
                     -0.02931240200996399
                 ],
                 "cluster": 2,
-                "influence": 1.2600000000000002
+                "influence": 1.2600000000000002,
+                "outlier_score": 0.7104484131733633
             },
             {
                 "author": "vgodara",
@@ -3155,7 +3162,8 @@
                     -0.026291020214557648
                 ],
                 "cluster": 3,
-                "influence": 5.3
+                "influence": 5.3,
+                "outlier_score": 0.5872072918307542
             },
             {
                 "author": "Vaibhav23431",
@@ -3549,7 +3557,8 @@
                     -0.01751309260725975
                 ],
                 "cluster": 1,
-                "influence": 0.9
+                "influence": 0.9,
+                "outlier_score": 0.7590409792423796
             },
             {
                 "author": "sucrosebatman",
@@ -3943,7 +3952,8 @@
                     -0.05283500254154205
                 ],
                 "cluster": 3,
-                "influence": 0.5
+                "influence": 0.5,
+                "outlier_score": 0.7440674567629694
             }
         ],
         "embedding": [
@@ -4333,7 +4343,8 @@
             -0.033934980630874634
         ],
         "cluster": 2,
-        "influence": 44.5
+        "influence": 44.5,
+        "outlier_score": 0.6513451865615996
     },
     {
         "author": "ComputerHelpPro",
@@ -4727,7 +4738,8 @@
             0.0714726448059082
         ],
         "cluster": 2,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.9179455421916096
     },
     {
         "author": "Potential-Box6221",
@@ -5121,7 +5133,8 @@
             -0.017968997359275818
         ],
         "cluster": 2,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.747883071034201
     },
     {
         "author": "[deleted]",
@@ -5515,7 +5528,8 @@
             0.011267654597759247
         ],
         "cluster": 3,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.5929770000667853
     },
     {
         "author": "Competitive_Work_249",
@@ -5909,7 +5923,8 @@
             -0.08359714597463608
         ],
         "cluster": 3,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.686965210618897
     },
     {
         "author": "Scorched_Scorpion",
@@ -6303,7 +6318,8 @@
             0.00886273942887783
         ],
         "cluster": 3,
-        "influence": -4.65
+        "influence": -4.65,
+        "outlier_score": 0.7159889498051759
     },
     {
         "author": "Andheri_Gufa69",
@@ -6697,7 +6713,8 @@
             0.03436786308884621
         ],
         "cluster": 3,
-        "influence": 22.1
+        "influence": 22.1,
+        "outlier_score": 0.632064493966861
     },
     {
         "author": "Andheri_Gufa69",
@@ -7091,7 +7108,8 @@
             -0.02931240200996399
         ],
         "cluster": 2,
-        "influence": 1.2600000000000002
+        "influence": 1.2600000000000002,
+        "outlier_score": 0.7104484131733633
     },
     {
         "author": "vgodara",
@@ -7485,7 +7503,8 @@
             -0.026291020214557648
         ],
         "cluster": 3,
-        "influence": 5.3
+        "influence": 5.3,
+        "outlier_score": 0.5872072918307542
     },
     {
         "author": "Vaibhav23431",
@@ -7879,7 +7898,8 @@
             -0.01751309260725975
         ],
         "cluster": 1,
-        "influence": 0.9
+        "influence": 0.9,
+        "outlier_score": 0.7590409792423796
     },
     {
         "author": "sucrosebatman",
@@ -8273,7 +8293,8 @@
             -0.05283500254154205
         ],
         "cluster": 3,
-        "influence": 0.5
+        "influence": 0.5,
+        "outlier_score": 0.7440674567629694
     },
     {
         "author": "ZealousidealOwl1318",
@@ -8673,7 +8694,8 @@
                     0.04438955336809158
                 ],
                 "cluster": 4,
-                "influence": 0.9500000000000001
+                "influence": 0.9500000000000001,
+                "outlier_score": 0.9361761018547949
             },
             {
                 "author": "Comfortable-Rock3733",
@@ -9067,7 +9089,8 @@
                     -0.09451065212488174
                 ],
                 "cluster": 3,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.6095986395766828
             },
             {
                 "author": "Appetite4Upgrade",
@@ -9461,7 +9484,8 @@
                     0.03713062033057213
                 ],
                 "cluster": 1,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.8520876176240075
             }
         ],
         "embedding": [
@@ -9851,7 +9875,8 @@
             0.009386097081005573
         ],
         "cluster": 3,
-        "influence": 24.8
+        "influence": 24.8,
+        "outlier_score": 0.515229221944322
     },
     {
         "author": "imretardeadd",
@@ -10245,7 +10270,8 @@
             0.04438955336809158
         ],
         "cluster": 4,
-        "influence": 0.9500000000000001
+        "influence": 0.9500000000000001,
+        "outlier_score": 0.9361761018547949
     },
     {
         "author": "Comfortable-Rock3733",
@@ -10639,7 +10665,8 @@
             -0.09451065212488174
         ],
         "cluster": 3,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.6095986395766828
     },
     {
         "author": "Appetite4Upgrade",
@@ -11033,7 +11060,8 @@
             0.03713062033057213
         ],
         "cluster": 1,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.8520876176240075
     },
     {
         "author": "[deleted]",
@@ -11433,7 +11461,8 @@
                     0.05330218747258186
                 ],
                 "cluster": 1,
-                "influence": 7.750000000000001
+                "influence": 7.750000000000001,
+                "outlier_score": 0.8829024809998517
             },
             {
                 "author": "[deleted]",
@@ -11827,7 +11856,8 @@
                     0.11003207415342331
                 ],
                 "cluster": 1,
-                "influence": 6.5
+                "influence": 6.5,
+                "outlier_score": 0.7631259026518236
             },
             {
                 "author": "Scorched_Scorpion",
@@ -12221,7 +12251,8 @@
                     0.07068632543087006
                 ],
                 "cluster": 2,
-                "influence": -5.05
+                "influence": -5.05,
+                "outlier_score": 0.8083292586693662
             },
             {
                 "author": "[deleted]",
@@ -12615,7 +12646,8 @@
                     0.0394047386944294
                 ],
                 "cluster": 2,
-                "influence": 4.9
+                "influence": 4.9,
+                "outlier_score": 0.8430431593614479
             },
             {
                 "author": "Concern-Excellent",
@@ -13009,7 +13041,8 @@
                     0.03878064826130867
                 ],
                 "cluster": 2,
-                "influence": 0.875
+                "influence": 0.875,
+                "outlier_score": 0.8041307545773269
             },
             {
                 "author": "PinkkPussyPolitics",
@@ -13403,7 +13436,8 @@
                     0.026304233819246292
                 ],
                 "cluster": 2,
-                "influence": 0.15
+                "influence": 0.15,
+                "outlier_score": 0.9066436807547913
             },
             {
                 "author": "ZealousidealOwl1318",
@@ -13797,7 +13831,8 @@
                     0.014262375421822071
                 ],
                 "cluster": 1,
-                "influence": 0.5
+                "influence": 0.5,
+                "outlier_score": 0.8244273811461644
             }
         ],
         "embedding": [
@@ -14187,7 +14222,8 @@
             0.014278133399784565
         ],
         "cluster": 2,
-        "influence": 24.000000000000004
+        "influence": 24.000000000000004,
+        "outlier_score": 0.8034273423124797
     },
     {
         "author": "CuriousBludSchlawg",
@@ -14581,7 +14617,8 @@
             0.05330218747258186
         ],
         "cluster": 1,
-        "influence": 7.750000000000001
+        "influence": 7.750000000000001,
+        "outlier_score": 0.8829024809998517
     },
     {
         "author": "[deleted]",
@@ -14975,7 +15012,8 @@
             0.11003207415342331
         ],
         "cluster": 1,
-        "influence": 6.5
+        "influence": 6.5,
+        "outlier_score": 0.7631259026518236
     },
     {
         "author": "Scorched_Scorpion",
@@ -15369,7 +15407,8 @@
             0.07068632543087006
         ],
         "cluster": 2,
-        "influence": -5.05
+        "influence": -5.05,
+        "outlier_score": 0.8083292586693662
     },
     {
         "author": "[deleted]",
@@ -15763,7 +15802,8 @@
             0.0394047386944294
         ],
         "cluster": 2,
-        "influence": 4.9
+        "influence": 4.9,
+        "outlier_score": 0.8430431593614479
     },
     {
         "author": "Concern-Excellent",
@@ -16157,7 +16197,8 @@
             0.03878064826130867
         ],
         "cluster": 2,
-        "influence": 0.875
+        "influence": 0.875,
+        "outlier_score": 0.8041307545773269
     },
     {
         "author": "PinkkPussyPolitics",
@@ -16551,7 +16592,8 @@
             0.026304233819246292
         ],
         "cluster": 2,
-        "influence": 0.15
+        "influence": 0.15,
+        "outlier_score": 0.9066436807547913
     },
     {
         "author": "ZealousidealOwl1318",
@@ -16945,7 +16987,8 @@
             0.014262375421822071
         ],
         "cluster": 1,
-        "influence": 0.5
+        "influence": 0.5,
+        "outlier_score": 0.8244273811461644
     },
     {
         "author": "dankumemer",
@@ -17345,7 +17388,8 @@
                     0.0887376070022583
                 ],
                 "cluster": 4,
-                "influence": 14.15
+                "influence": 14.15,
+                "outlier_score": 0.9516807856294142
             },
             {
                 "author": "dankumemer",
@@ -17739,7 +17783,8 @@
                     0.05249762907624245
                 ],
                 "cluster": 2,
-                "influence": 0.9
+                "influence": 0.9,
+                "outlier_score": 0.7799771498643229
             },
             {
                 "author": "OkAuthor5971",
@@ -18133,7 +18178,8 @@
                     -0.016358889639377594
                 ],
                 "cluster": 4,
-                "influence": 0.9500000000000001
+                "influence": 0.9500000000000001,
+                "outlier_score": 0.8482734883444889
             }
         ],
         "embedding": [
@@ -18523,7 +18569,8 @@
             -0.004062016028910875
         ],
         "cluster": 3,
-        "influence": 36.4
+        "influence": 36.4,
+        "outlier_score": 0.6309980320146789
     },
     {
         "author": "Sabhojayegabhai",
@@ -18917,7 +18964,8 @@
             0.0887376070022583
         ],
         "cluster": 4,
-        "influence": 14.15
+        "influence": 14.15,
+        "outlier_score": 0.9516807856294142
     },
     {
         "author": "dankumemer",
@@ -19311,7 +19359,8 @@
             0.05249762907624245
         ],
         "cluster": 2,
-        "influence": 0.9
+        "influence": 0.9,
+        "outlier_score": 0.7799771498643229
     },
     {
         "author": "OkAuthor5971",
@@ -19705,7 +19754,8 @@
             -0.016358889639377594
         ],
         "cluster": 4,
-        "influence": 0.9500000000000001
+        "influence": 0.9500000000000001,
+        "outlier_score": 0.8482734883444889
     },
     {
         "author": "yourboi-JC",
@@ -20105,7 +20155,8 @@
                     -0.0470646433532238
                 ],
                 "cluster": 3,
-                "influence": 0.5
+                "influence": 0.5,
+                "outlier_score": 0.584980537248224
             },
             {
                 "author": "ZealousidealOwl1318",
@@ -20499,7 +20550,8 @@
                     -0.009725980460643768
                 ],
                 "cluster": 4,
-                "influence": 3.6750000000000003
+                "influence": 3.6750000000000003,
+                "outlier_score": 0.8375360643148466
             },
             {
                 "author": "Scorched_Scorpion",
@@ -20893,7 +20945,8 @@
                     -0.034859705716371536
                 ],
                 "cluster": 3,
-                "influence": 0.47500000000000003
+                "influence": 0.47500000000000003,
+                "outlier_score": 0.63160232405018
             },
             {
                 "author": "yourboi-JC",
@@ -21287,7 +21340,8 @@
                     0.022541852667927742
                 ],
                 "cluster": 4,
-                "influence": 0.8600000000000001
+                "influence": 0.8600000000000001,
+                "outlier_score": 0.8019590060423398
             }
         ],
         "embedding": [
@@ -21677,7 +21731,8 @@
             -0.03773226588964462
         ],
         "cluster": 4,
-        "influence": 5.1
+        "influence": 5.1,
+        "outlier_score": 0.8819992898407929
     },
     {
         "author": "yourboi-JC",
@@ -22071,7 +22126,8 @@
             -0.0470646433532238
         ],
         "cluster": 3,
-        "influence": 0.5
+        "influence": 0.5,
+        "outlier_score": 0.584980537248224
     },
     {
         "author": "ZealousidealOwl1318",
@@ -22465,7 +22521,8 @@
             -0.009725980460643768
         ],
         "cluster": 4,
-        "influence": 3.6750000000000003
+        "influence": 3.6750000000000003,
+        "outlier_score": 0.8375360643148466
     },
     {
         "author": "Scorched_Scorpion",
@@ -22859,7 +22916,8 @@
             -0.034859705716371536
         ],
         "cluster": 3,
-        "influence": 0.47500000000000003
+        "influence": 0.47500000000000003,
+        "outlier_score": 0.63160232405018
     },
     {
         "author": "yourboi-JC",
@@ -23253,7 +23311,8 @@
             0.022541852667927742
         ],
         "cluster": 4,
-        "influence": 0.8600000000000001
+        "influence": 0.8600000000000001,
+        "outlier_score": 0.8019590060423398
     },
     {
         "author": "Wooden-Tear-4938",
@@ -23648,7 +23707,8 @@
             0.05351264029741287
         ],
         "cluster": 4,
-        "influence": 3.9
+        "influence": 3.9,
+        "outlier_score": 0.8514989932114256
     },
     {
         "author": "Acrobatic-Fortune550",
@@ -24048,7 +24108,8 @@
                     -0.0006069415248930454
                 ],
                 "cluster": 3,
-                "influence": 2.15
+                "influence": 2.15,
+                "outlier_score": 0.558603116169055
             },
             {
                 "author": "Acrobatic-Fortune550",
@@ -24442,7 +24503,8 @@
                     0.015583977103233337
                 ],
                 "cluster": 3,
-                "influence": 2.1
+                "influence": 2.1,
+                "outlier_score": 0.4740674388199262
             },
             {
                 "author": "Torzic",
@@ -24836,7 +24898,8 @@
                     0.008017528802156448
                 ],
                 "cluster": 0,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.18037110201224904
             },
             {
                 "author": "Acrobatic-Fortune550",
@@ -25230,7 +25293,8 @@
                     0.027216263115406036
                 ],
                 "cluster": 0,
-                "influence": 0.5
+                "influence": 0.5,
+                "outlier_score": 0.1688125609148856
             },
             {
                 "author": "Interesting-Ear2783",
@@ -25624,7 +25688,8 @@
                     0.08390519767999649
                 ],
                 "cluster": 4,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.8873458783849192
             }
         ],
         "embedding": [
@@ -26014,7 +26079,8 @@
             0.0068598235957324505
         ],
         "cluster": 3,
-        "influence": 11.8
+        "influence": 11.8,
+        "outlier_score": 0.4594005771339529
     },
     {
         "author": "VariousPianist7259",
@@ -26408,7 +26474,8 @@
             -0.0006069415248930454
         ],
         "cluster": 3,
-        "influence": 2.15
+        "influence": 2.15,
+        "outlier_score": 0.558603116169055
     },
     {
         "author": "Acrobatic-Fortune550",
@@ -26802,7 +26869,8 @@
             0.015583977103233337
         ],
         "cluster": 3,
-        "influence": 2.1
+        "influence": 2.1,
+        "outlier_score": 0.4740674388199262
     },
     {
         "author": "Torzic",
@@ -27196,7 +27264,8 @@
             0.008017528802156448
         ],
         "cluster": 0,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.18037110201224904
     },
     {
         "author": "Acrobatic-Fortune550",
@@ -27590,7 +27659,8 @@
             0.027216263115406036
         ],
         "cluster": 0,
-        "influence": 0.5
+        "influence": 0.5,
+        "outlier_score": 0.1688125609148856
     },
     {
         "author": "Interesting-Ear2783",
@@ -27984,7 +28054,8 @@
             0.08390519767999649
         ],
         "cluster": 4,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.8873458783849192
     },
     {
         "author": "DustyAsh69",
@@ -28384,7 +28455,8 @@
                     -0.05721665918827057
                 ],
                 "cluster": 4,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.7738118898314132
             },
             {
                 "author": "PETRA0_0",
@@ -28778,7 +28850,8 @@
                     -0.04182205721735954
                 ],
                 "cluster": 3,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.6335143228823326
             }
         ],
         "embedding": [
@@ -29168,7 +29241,8 @@
             -0.04014702886343002
         ],
         "cluster": 3,
-        "influence": 3.3000000000000003
+        "influence": 3.3000000000000003,
+        "outlier_score": 0.5197662125680445
     },
     {
         "author": "Scorched_Scorpion",
@@ -29562,7 +29636,8 @@
             -0.05721665918827057
         ],
         "cluster": 4,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.7738118898314132
     },
     {
         "author": "PETRA0_0",
@@ -29956,7 +30031,8 @@
             -0.04182205721735954
         ],
         "cluster": 3,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.6335143228823326
     },
     {
         "author": "Ashitaaaa",
@@ -30356,7 +30432,8 @@
                     0.01911754719913006
                 ],
                 "cluster": 3,
-                "influence": 1.35
+                "influence": 1.35,
+                "outlier_score": 0.5996869225086486
             },
             {
                 "author": "Ashitaaaa",
@@ -30750,7 +30827,8 @@
                     0.0017330864211544394
                 ],
                 "cluster": 4,
-                "influence": 0.9
+                "influence": 0.9,
+                "outlier_score": 0.9578795195504767
             },
             {
                 "author": "Ashitosh199",
@@ -31144,7 +31222,8 @@
                     -0.0046969144605100155
                 ],
                 "cluster": 4,
-                "influence": 0.47500000000000003
+                "influence": 0.47500000000000003,
+                "outlier_score": 0.9332268604345921
             }
         ],
         "embedding": [
@@ -31534,7 +31613,8 @@
             -0.0009702637325972319
         ],
         "cluster": 4,
-        "influence": 2.8
+        "influence": 2.8,
+        "outlier_score": 1.0225537716418005
     },
     {
         "author": "Scorched_Scorpion",
@@ -31928,7 +32008,8 @@
             0.01911754719913006
         ],
         "cluster": 3,
-        "influence": 1.35
+        "influence": 1.35,
+        "outlier_score": 0.5996869225086486
     },
     {
         "author": "Ashitaaaa",
@@ -32322,7 +32403,8 @@
             0.0017330864211544394
         ],
         "cluster": 4,
-        "influence": 0.9
+        "influence": 0.9,
+        "outlier_score": 0.9578795195504767
     },
     {
         "author": "Ashitosh199",
@@ -32716,7 +32798,8 @@
             -0.0046969144605100155
         ],
         "cluster": 4,
-        "influence": 0.47500000000000003
+        "influence": 0.47500000000000003,
+        "outlier_score": 0.9332268604345921
     },
     {
         "author": "IronLyx",
@@ -33116,7 +33199,8 @@
                     -0.055408645421266556
                 ],
                 "cluster": 3,
-                "influence": 1.35
+                "influence": 1.35,
+                "outlier_score": 0.6262027535747439
             },
             {
                 "author": "IronLyx",
@@ -33510,7 +33594,8 @@
                     -0.04419045150279999
                 ],
                 "cluster": 4,
-                "influence": 1.7000000000000002
+                "influence": 1.7000000000000002,
+                "outlier_score": 0.8640814371737995
             }
         ],
         "embedding": [
@@ -33900,7 +33985,8 @@
             -0.03574603050947189
         ],
         "cluster": 3,
-        "influence": 4.5
+        "influence": 4.5,
+        "outlier_score": 0.6135668057842418
     },
     {
         "author": "PinkkPussyPolitics",
@@ -34294,7 +34380,8 @@
             -0.055408645421266556
         ],
         "cluster": 3,
-        "influence": 1.35
+        "influence": 1.35,
+        "outlier_score": 0.6262027535747439
     },
     {
         "author": "IronLyx",
@@ -34688,7 +34775,8 @@
             -0.04419045150279999
         ],
         "cluster": 4,
-        "influence": 1.7000000000000002
+        "influence": 1.7000000000000002,
+        "outlier_score": 0.8640814371737995
     },
     {
         "author": "Ashamed_Fox_9923",
@@ -35083,7 +35171,8 @@
             -0.04363325983285904
         ],
         "cluster": 3,
-        "influence": 1.9000000000000001
+        "influence": 1.9000000000000001,
+        "outlier_score": 0.6537047150442674
     },
     {
         "author": "Torzic",
@@ -35483,7 +35572,8 @@
                     0.05077774450182915
                 ],
                 "cluster": 3,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.5898150455389993
             }
         ],
         "embedding": [
@@ -35873,7 +35963,8 @@
             0.026142042130231857
         ],
         "cluster": 3,
-        "influence": 2.2
+        "influence": 2.2,
+        "outlier_score": 0.5960558802468379
     },
     {
         "author": "Scorched_Scorpion",
@@ -36267,7 +36358,8 @@
             0.05077774450182915
         ],
         "cluster": 3,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.5898150455389993
     },
     {
         "author": "West-Set-1632",
@@ -36662,7 +36754,8 @@
             0.15951423346996307
         ],
         "cluster": 4,
-        "influence": 2.3
+        "influence": 2.3,
+        "outlier_score": 0.8264534779476923
     },
     {
         "author": "lib_progressive_23",
@@ -37057,7 +37150,8 @@
             0.05551694706082344
         ],
         "cluster": 1,
-        "influence": 2.7
+        "influence": 2.7,
+        "outlier_score": 0.8144711606872639
     },
     {
         "author": "Sampurn31",
@@ -37452,7 +37546,8 @@
             0.048947274684906006
         ],
         "cluster": 3,
-        "influence": 1.1
+        "influence": 1.1,
+        "outlier_score": 0.5498756076670874
     },
     {
         "author": "WayZealousideal2",
@@ -37847,7 +37942,8 @@
             -0.058953940868377686
         ],
         "cluster": 3,
-        "influence": 1.1
+        "influence": 1.1,
+        "outlier_score": 0.5872495198456065
     },
     {
         "author": "Hefty-Builder-1335",
@@ -38247,7 +38343,8 @@
                     0.057740576565265656
                 ],
                 "cluster": 4,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.8198123292582262
             }
         ],
         "embedding": [
@@ -38637,7 +38734,8 @@
             -0.029967091977596283
         ],
         "cluster": 3,
-        "influence": 1.4000000000000001
+        "influence": 1.4000000000000001,
+        "outlier_score": 0.5712169511011017
     },
     {
         "author": "Scorched_Scorpion",
@@ -39031,7 +39129,8 @@
             0.057740576565265656
         ],
         "cluster": 4,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.8198123292582262
     },
     {
         "author": "Worldisshit23",
@@ -39426,7 +39525,8 @@
             -0.06817551702260971
         ],
         "cluster": 2,
-        "influence": 1.1
+        "influence": 1.1,
+        "outlier_score": 0.7887291732770669
     },
     {
         "author": "[deleted]",
@@ -39821,7 +39921,8 @@
             -0.00765217887237668
         ],
         "cluster": 1,
-        "influence": 1.9000000000000001
+        "influence": 1.9000000000000001,
+        "outlier_score": 0.8482963565816859
     },
     {
         "author": "Acceptable_Set1147",
@@ -40221,7 +40322,8 @@
                     -0.027594100683927536
                 ],
                 "cluster": 3,
-                "influence": 4.15
+                "influence": 4.15,
+                "outlier_score": 0.6958514650850567
             },
             {
                 "author": "Acceptable_Set1147",
@@ -40615,7 +40717,8 @@
                     -0.056906942278146744
                 ],
                 "cluster": 3,
-                "influence": 0.5
+                "influence": 0.5,
+                "outlier_score": 0.5851641266575835
             },
             {
                 "author": "Scorched_Scorpion",
@@ -41009,7 +41112,8 @@
                     0.004994225222617388
                 ],
                 "cluster": 1,
-                "influence": 1.35
+                "influence": 1.35,
+                "outlier_score": 0.9104263884618562
             },
             {
                 "author": "Acceptable_Set1147",
@@ -41403,7 +41507,8 @@
                     -0.011173469945788383
                 ],
                 "cluster": 1,
-                "influence": 0.9
+                "influence": 0.9,
+                "outlier_score": 0.6644283808559982
             }
         ],
         "embedding": [
@@ -41793,7 +41898,8 @@
             0.04694516956806183
         ],
         "cluster": 1,
-        "influence": 2.7
+        "influence": 2.7,
+        "outlier_score": 0.789375716480089
     },
     {
         "author": "ComplexBullfrog8114",
@@ -42187,7 +42293,8 @@
             -0.027594100683927536
         ],
         "cluster": 3,
-        "influence": 4.15
+        "influence": 4.15,
+        "outlier_score": 0.6958514650850567
     },
     {
         "author": "Acceptable_Set1147",
@@ -42581,7 +42688,8 @@
             -0.056906942278146744
         ],
         "cluster": 3,
-        "influence": 0.5
+        "influence": 0.5,
+        "outlier_score": 0.5851641266575835
     },
     {
         "author": "Scorched_Scorpion",
@@ -42975,7 +43083,8 @@
             0.004994225222617388
         ],
         "cluster": 1,
-        "influence": 1.35
+        "influence": 1.35,
+        "outlier_score": 0.9104263884618562
     },
     {
         "author": "Acceptable_Set1147",
@@ -43369,7 +43478,8 @@
             -0.011173469945788383
         ],
         "cluster": 1,
-        "influence": 0.9
+        "influence": 0.9,
+        "outlier_score": 0.6644283808559982
     },
     {
         "author": "HousingAdept1087",
@@ -43764,7 +43874,8 @@
             -0.03730056434869766
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.5575263877249929
     },
     {
         "author": "Popular-Assistant607",
@@ -44164,7 +44275,8 @@
                     0.011196496896445751
                 ],
                 "cluster": 3,
-                "influence": 0.15
+                "influence": 0.15,
+                "outlier_score": 0.4801392977898481
             },
             {
                 "author": "Popular-Assistant607",
@@ -44558,7 +44670,8 @@
                     -0.026597369462251663
                 ],
                 "cluster": 3,
-                "influence": 0.5
+                "influence": 0.5,
+                "outlier_score": 0.614477632180441
             }
         ],
         "embedding": [
@@ -44948,7 +45061,8 @@
             -0.05863922834396362
         ],
         "cluster": 3,
-        "influence": 1.3
+        "influence": 1.3,
+        "outlier_score": 0.5604177806492059
     },
     {
         "author": "Vaibhav23431",
@@ -45342,7 +45456,8 @@
             0.011196496896445751
         ],
         "cluster": 3,
-        "influence": 0.15
+        "influence": 0.15,
+        "outlier_score": 0.4801392977898481
     },
     {
         "author": "Popular-Assistant607",
@@ -45736,7 +45851,8 @@
             -0.026597369462251663
         ],
         "cluster": 3,
-        "influence": 0.5
+        "influence": 0.5,
+        "outlier_score": 0.614477632180441
     },
     {
         "author": "Honest_Injury9874",
@@ -46131,7 +46247,8 @@
             0.02045539952814579
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.543900835579672
     },
     {
         "author": "Meowllionairee",
@@ -46526,7 +46643,8 @@
             -0.029363198205828667
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.5506442133776177
     },
     {
         "author": "kachorilal",
@@ -46921,7 +47039,8 @@
             -0.0073180668987333775
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.6141442994661305
     },
     {
         "author": "Rare_Coffee_8611",
@@ -47316,7 +47435,8 @@
             -0.015567392110824585
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.5927560196568507
     },
     {
         "author": "Baskervillenight",
@@ -47711,7 +47831,8 @@
             0.017651673406362534
         ],
         "cluster": 1,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.683804168250795
     },
     {
         "author": "UnluckyCry741",
@@ -48111,7 +48232,8 @@
                     -0.05390216410160065
                 ],
                 "cluster": 4,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.8907722345683016
             },
             {
                 "author": "UnluckyCry741",
@@ -48505,7 +48627,8 @@
                     -0.013182349503040314
                 ],
                 "cluster": 4,
-                "influence": 0.5
+                "influence": 0.5,
+                "outlier_score": 0.9607555441036237
             }
         ],
         "embedding": [
@@ -48895,7 +49018,8 @@
             -0.008979667909443378
         ],
         "cluster": 3,
-        "influence": 1.3
+        "influence": 1.3,
+        "outlier_score": 0.5923198695516754
     },
     {
         "author": "Scorched_Scorpion",
@@ -49289,7 +49413,8 @@
             -0.05390216410160065
         ],
         "cluster": 4,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.8907722345683016
     },
     {
         "author": "UnluckyCry741",
@@ -49683,7 +49808,8 @@
             -0.013182349503040314
         ],
         "cluster": 4,
-        "influence": 0.5
+        "influence": 0.5,
+        "outlier_score": 0.9607555441036237
     },
     {
         "author": "Admirable-East3396",
@@ -50078,7 +50204,8 @@
             -0.012379901483654976
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.5291487896087805
     },
     {
         "author": "nemesis1311",
@@ -50473,7 +50600,8 @@
             0.042100679129362106
         ],
         "cluster": 1,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.7496620833178704
     },
     {
         "author": "Senior_Relief3594",
@@ -50868,7 +50996,8 @@
             0.026238903403282166
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.5883104215252715
     },
     {
         "author": "iamfidelius",
@@ -51263,7 +51392,8 @@
             0.003258924465626478
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.4504546031293629
     },
     {
         "author": "euneva_krap",
@@ -51658,7 +51788,8 @@
             -0.013068118132650852
         ],
         "cluster": 1,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.7254151335185659
     },
     {
         "author": "Attack_Helicopter_17",
@@ -52053,7 +52184,8 @@
             0.0026748967356979847
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.5681145216341427
     },
     {
         "author": "cifix14",
@@ -52448,7 +52580,8 @@
             -0.022086963057518005
         ],
         "cluster": 2,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.9050580653840322
     },
     {
         "author": "EducationalPast7410",
@@ -52843,7 +52976,8 @@
             0.045650966465473175
         ],
         "cluster": 4,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.932242881747134
     },
     {
         "author": "senor_bruh",
@@ -53238,7 +53372,8 @@
             0.028306128457188606
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.6027631382730636
     },
     {
         "author": "Gold-Acanthisitta695",
@@ -53633,7 +53768,8 @@
             0.07097931206226349
         ],
         "cluster": 1,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.8368688953599914
     },
     {
         "author": "Intervueio",
@@ -54028,7 +54164,8 @@
             -0.03624667227268219
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.6403186641639375
     },
     {
         "author": "XoX-o-",
@@ -54423,7 +54560,8 @@
             0.012682645581662655
         ],
         "cluster": 0,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.35066997611571593
     },
     {
         "author": "boomereng7000",
@@ -54823,7 +54961,8 @@
                     -0.0014011027524247766
                 ],
                 "cluster": 0,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.5893431009430546
             }
         ],
         "embedding": [
@@ -55213,7 +55352,8 @@
             0.01425052247941494
         ],
         "cluster": 3,
-        "influence": 1.0
+        "influence": 1.0,
+        "outlier_score": 0.6437423597779888
     },
     {
         "author": "Scorched_Scorpion",
@@ -55607,7 +55747,8 @@
             -0.0014011027524247766
         ],
         "cluster": 0,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.5893431009430546
     },
     {
         "author": "Top-Candle1296",
@@ -56002,7 +56143,8 @@
             0.031980741769075394
         ],
         "cluster": 2,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.7341214376088674
     },
     {
         "author": "its_your_",
@@ -56397,7 +56539,8 @@
             -0.0008297571912407875
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.7231155820566488
     },
     {
         "author": "ThFlameAlchemist",
@@ -56792,7 +56935,8 @@
             0.0384921059012413
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.6382398421278167
     },
     {
         "author": "giantyglobal",
@@ -57187,7 +57331,8 @@
             -0.026625268161296844
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.6310517144705032
     },
     {
         "author": "tombstonebase",
@@ -57582,7 +57727,8 @@
             0.034222621470689774
         ],
         "cluster": 1,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.8011355809344307
     },
     {
         "author": "General_Row_6285",
@@ -57977,7 +58123,8 @@
             -0.029636407271027565
         ],
         "cluster": 3,
-        "influence": 0.7
+        "influence": 0.7,
+        "outlier_score": 0.5662662112620612
     },
     {
         "author": "Avoid-me-6666",
@@ -58377,7 +58524,8 @@
                     -0.014589407481253147
                 ],
                 "cluster": 4,
-                "influence": 0.55
+                "influence": 0.55,
+                "outlier_score": 0.9640879756065736
             },
             {
                 "author": "Avoid-me-6666",
@@ -58771,7 +58919,8 @@
                     0.041717641055583954
                 ],
                 "cluster": 3,
-                "influence": 0.5
+                "influence": 0.5,
+                "outlier_score": 0.5700097759438134
             }
         ],
         "embedding": [
@@ -59161,7 +59310,8 @@
             0.059220317751169205
         ],
         "cluster": 4,
-        "influence": 1.3
+        "influence": 1.3,
+        "outlier_score": 0.701371581802446
     },
     {
         "author": "Scorched_Scorpion",
@@ -59555,7 +59705,8 @@
             -0.014589407481253147
         ],
         "cluster": 4,
-        "influence": 0.55
+        "influence": 0.55,
+        "outlier_score": 0.9640879756065736
     },
     {
         "author": "Avoid-me-6666",
@@ -59949,6 +60100,7 @@
             0.041717641055583954
         ],
         "cluster": 3,
-        "influence": 0.5
+        "influence": 0.5,
+        "outlier_score": 0.5700097759438134
     }
 ]

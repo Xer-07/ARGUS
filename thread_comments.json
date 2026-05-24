@@ -1,0 +1,666 @@
+[
+  {
+    "author": "PRL-Five",
+    "body": "Sure, but everyone ignores security vulnerabilities when you vibecode stuff. Ai is notorious for leaving huge gaps. You need a human to review code before merging it, and the issue is vibecoded PRs are so big it's a stupid hassle to review and merge. Unless ai stops writing redundant and overly complex code, i wodunt want it to manage my entire codebase",
+    "score": 103,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "ComputerHelpPro",
+        "body": "It also ignores performance and accessibility concerns on the front end - basically it's taken boilerplate to a new level (but even then, it needs significant hand holding) but like other boilerplate generators, it stops before the real work begins.",
+        "score": 1,
+        "depth": 1
+      },
+      {
+        "author": "Potential-Box6221",
+        "body": "Vibe coding is different; it's when you don't know the underlying logic/syntax/language and purely rely on AI for everything.\n\nBut this is different, you prompt what you want, you understand what it generates, review it, refine it if required. So what used to take a sprint now only takes a day or 2. So obviously this results in downsizing teams.\n\nAnd regarding AI agents generating big PRs, there are workflows that instruct agents to ship small changes incrementally and then there's also spec driven developement that's picking up phase.\n\n",
+        "score": 1,
+        "depth": 1
+      },
+      {
+        "author": "[deleted]",
+        "body": "Yaa but if someone wants to build using ai then you definitely need knowledge then only you can use it like if an arts student tries to build and website he could but then it would be very bad security wise,if you want to build someone then you definitely need knowledge otherwise it's of no use if you want to build something useful",
+        "score": 1,
+        "depth": 1
+      },
+      {
+        "author": "Competitive_Work_249",
+        "body": "So you're saying that we would need humans to overview everything and fix all mistakes that the ai model makes? But wouldn't it reduce the number of people overall required? I had an analogy for this- in the industrial revolution, a machine replaced 100 workers and those who learned to be mechanics on the machine succeeded. Dont you think they'd need 1 mechanic for a 100 machines though? Point being that from what I understand, vibe coded stuff would need refinement from a human in the end. My question is- would the volume of software engineers we have today be rendered jobless and only 1% of it all will be required? (Simplified numbers, and I'm in 12th so idk a lot about anything, just tryna ask)",
+        "score": 1,
+        "depth": 1
+      },
+      {
+        "author": "Scorched_Scorpion",
+        "body": "Yeah I agree but what if just what if an AI drops tomorrow that writes perfect code? that has overcome all the shortcomings of current models?",
+        "score": -12,
+        "depth": 1
+      },
+      {
+        "author": "Andheri_Gufa69",
+        "body": "We'll talk when the AI can do that, people that share your opinion haven't ever opened a production codebase with legacy code\n\nOnce you see the AI hallucinate, you would not worry about this",
+        "score": 55,
+        "depth": 2
+      },
+      {
+        "author": "Andheri_Gufa69",
+        "body": "Bhai you understand that AI does not understand if a code is legacy code and not actually used in the front end rendering screens\n\nMore often then not it will find out security issues in such files that are either not made completely or were made using old architecture\n\nFixing these issues take tokens of the llms, but sometimes you don't want to delete the file as it has business logic in it, although with old code architecture\n\nI have used claude code, codex, copilot, and almost all of them take 15-20 minutes per prompt if you're going to ask it to audit stuff or check stuff, very rarely will it just spit out production code in 2 minutes, like a chatgpt chat",
+        "score": 3,
+        "depth": 4
+      },
+      {
+        "author": "vgodara",
+        "body": "AI has really large knowledge base and very limited reasoning skills. If you have ever met someone who was good at rote learning. Consider AI the same person but on steroids. \n\n\nWould people ever give the same person complete control over their business.\n\nIf the answer to that question is yes. All white collar jobs are doomed.",
+        "score": 13,
+        "depth": 2
+      },
+      {
+        "author": "Vaibhav23431",
+        "body": "if we were to go in that direction then it would lead to mass scale unemployment and economy collapse because the number of consumers with high incomes mainly the white collar job guys would be greatly reduced and then blue collar jobs would be the only ones remaining. there would be no spending power on anyone so dont think that opening a startup would help ",
+        "score": 2,
+        "depth": 2
+      },
+      {
+        "author": "sucrosebatman",
+        "body": "People need to understand that you cannot have 'deterministic' code from 'probabilitic' AI. That's a physical limitation unless there is a radical change in how AI works as we know it. ",
+        "score": 1,
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "author": "ZealousidealOwl1318",
+    "body": "Good luck giving ai access to your companies entire cloud/backend infrastructure, you will see how quickly everything burns down.\n\nAi is more like a tool right now, and I don't see it becoming more than that in the next few years. Yes jobs will go down for junior developer roles but if you have good skills you will still find the right jobs",
+    "score": 59,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "imretardeadd",
+        "body": "Just saw a post about someone losing 2.5 years worth of DB content lol",
+        "score": 2,
+        "depth": 1
+      },
+      {
+        "author": "Comfortable-Rock3733",
+        "body": "And then, if AI do not take everyone's jobs, we might have a crisis of dry pipeline for seniors soon😅",
+        "score": 1,
+        "depth": 1
+      },
+      {
+        "author": "Appetite4Upgrade",
+        "body": "Have you heard about the minions agents that stripe uses in production ??",
+        "score": 1,
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "author": "[deleted]",
+    "body": "Sure developing is easy but do you know difficult it is to maintain it with the LLM hallucinating so bad? \n\nThe code that LLMs write is hard to understand and work with later. \n\n\n",
+    "score": 54,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "CuriousBludSchlawg",
+        "body": "greedy CEOs on the lookout for their next bonus don't care about allat",
+        "score": 19,
+        "depth": 1
+      },
+      {
+        "author": "[deleted]",
+        "body": "That’s the thing. It’s not a sustainable business model and we’re already seeing the effects of it",
+        "score": 16,
+        "depth": 2
+      },
+      {
+        "author": "Scorched_Scorpion",
+        "body": "\"hallucinations\" has seen a huge improvement from 2023 to now. give it a couple more years and see the results. ",
+        "score": -13,
+        "depth": 1
+      },
+      {
+        "author": "[deleted]",
+        "body": "I’ve been using LLMs on and off since the day GPT3 came out. \n\nThe models became more intelligent and capable but they still struggle at context very often and hallucinations are still incredibly common. \n\nIt’s a lot easier to write your own code than fight with a LLM that ruins your entire codebase\n",
+        "score": 12,
+        "depth": 2
+      },
+      {
+        "author": "Concern-Excellent",
+        "body": "I don't know why he's downvoted but it's the truth. The hallucination rate has gone very far below by now. Check AAhallucination and AAOmniscience ratings for context. New models like GLM 5 and Claude Sonnet 4.6 in particular had low hallucination. I don't know if you tried them yet. There are also several ways which eliminate hallucination, involving the use of multiple AI to recheck and other stuff. Agentic AI and organising AI with a file with their own memory and planning come a long way. \n\nAll in all there are new developments in the field too. Like Deepseek V4's memory engram. A chinese paper which has identified the specific nodes responsible for hallucination itself etc. ",
+        "score": 2,
+        "depth": 3
+      },
+      {
+        "author": "PinkkPussyPolitics",
+        "body": "Yes.. But LLM's are getting SIGNIFICANTLY better with each update.. No denying that ",
+        "score": 0,
+        "depth": 1
+      },
+      {
+        "author": "ZealousidealOwl1318",
+        "body": "They really aren't. All improvements you see are by companies feeding more days and more power, but there is a limit to that and the companies know it. Unless a new mechanism that is more efficient is developed it will plateau eventually",
+        "score": 1,
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "author": "dankumemer",
+    "body": "Amazon made their employees kill their jobs by feeding an AI model. So well now any firm can do that by coercion.",
+    "score": 88,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "Sabhojayegabhai",
+        "body": "That news is fake btw the tweeter himself accepted it . ",
+        "score": 35,
+        "depth": 1
+      },
+      {
+        "author": "dankumemer",
+        "body": "Well an NDA is a good possibility.",
+        "score": 2,
+        "depth": 2
+      },
+      {
+        "author": "OkAuthor5971",
+        "body": "Can you explain it more? I don't know about it. ",
+        "score": 2,
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "author": "yourboi-JC",
+    "body": "Once recursive self improvement starts then you’ll understand ",
+    "score": 9,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "yourboi-JC",
+        "body": "“The Day AI Starts Improving Itself… Humans Might Not Keep Up” \n\nImagine an AI that doesn’t just learn from humans—but starts upgrading its own intelligence again and again. That’s called Recursive Self-Improvement (RSI). Once it begins, progress could explode from slow upgrades to runaway intelligence growth. In a short time, AI could outperform humans in coding, research, finance, and many other jobs, automating huge parts of the economy. Society could see massive productivity and new technologies—but also job shocks, power shifts, and a world where machines evolve faster than humans can understand them. Sounds like sci-fi… but this is exactly the scenario AI labs are quietly racing toward.",
+        "score": 1,
+        "depth": 2
+      },
+      {
+        "author": "ZealousidealOwl1318",
+        "body": "Damn bro has a PhD in bullshitting ",
+        "score": 9,
+        "depth": 3
+      },
+      {
+        "author": "Scorched_Scorpion",
+        "body": "YES THIS IS EXACTLY WHAT I AM FEARING WOULD HAPPEN TOO. it's joever for humans when this point is reached. there is a platform already where AI agents can post similar to reddit",
+        "score": 1,
+        "depth": 3
+      },
+      {
+        "author": "yourboi-JC",
+        "body": "Well hopefully some sort of ubi will be given ",
+        "score": 2,
+        "depth": 4
+      }
+    ]
+  },
+  {
+    "author": "Wooden-Tear-4938",
+    "body": "\"Tomorrow it can build the backend\" \n\nIt's building that today buddy 😭💔",
+    "score": 9,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Acrobatic-Fortune550",
+    "body": "It's a tough pill for most to swallow.In just 5 years,These AI Systems Will see Exponential growth.Software Jobs won't be\"killed\" but will definitely be reduced.Product driven and innovation first companies will more or less be stable.Its the Indian IT Sector, WITCH companies Etc that will face the brunt because of their easily replaceable linear -grunt work patterns.\n\n\nThere's a reason everybody,From Elon Musk,To mark zuckerberg to Dario of anthropic to Sam altman of Open AI; All want to focus on Automation of SWE.\nJobs will also grow heavily in the AI segment, however, since these positions are mostly niche,there won't be much of a demand in contrast to the labour india produces.\n",
+    "score": 25,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "VariousPianist7259",
+        "body": "I have a different take on this.\nWe never stopped when we solve something we have always moved to harder and harder problems may be ai can solve every thing we want to solve now but there are several fields that are yet to modernised and till now the cost did not justify it but with AI maybe it can be justified and when software engineering becomes easy applications are vast and integrating them inevitably requires swes again so I have a postive outlook on the ai scene",
+        "score": 5,
+        "depth": 1
+      },
+      {
+        "author": "Acrobatic-Fortune550",
+        "body": "Correct.I did not account for the potential spillover effects.However,aside from that,you just added to my points.\n\nYou see, Innovation and product driven companies will actually grow more or be stable with increased dynamism because of the Augmentation of AI.AI has not reached a stage yet to Get itself into fluid thinking and advanced Innovation.Its currently best used for Linear-Rote work patterns.\n\nGuess who majorly covers the linear-rote work patterns in software?Majority of The Indian IT sector.\n\nThis does not mean that WITCH or Other Indian IT sector majors are doomed.Its their Current model that will face major fallbacks with the Addition of AI Systems.They can still Adapt for the future ecosystem.Only time can tell.\nOnly time will tell.",
+        "score": 5,
+        "depth": 2
+      },
+      {
+        "author": "Torzic",
+        "body": "Your Thoughts on Cyberseucrity sector ? How will AI affect it, and what roles are good to target if someone is genuienly interested in cybersecurity, hacking , privacy, homelabbing, open source, self hosting etc",
+        "score": 1,
+        "depth": 1
+      },
+      {
+        "author": "Acrobatic-Fortune550",
+        "body": "Honestly,can't really comment on this.I don't really know much about the cybersecurity space.But,If you still want a layman's opinion I think it is very underrated.Especially,If you get yourself into a booming Niche like\nAI security Engineer or something like that.It will be very hard for AI to cover Niche roles especially in AI.Still go in with a broad mind while doing your Niche,you might find some new domains for yourself to explore.",
+        "score": 1,
+        "depth": 2
+      },
+      {
+        "author": "Interesting-Ear2783",
+        "body": "Yeah, that's the thing\nBtw Where are you working these days?",
+        "score": 1,
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "author": "DustyAsh69",
+    "body": "1) AI is trained on the data that is already present on the internet. It cannot think for itself. If you ask it to develop in a not so popular language like COBOL (despite the fact that it is used heavily in banks), it'll make inaccurate code. Or if you ask it to code using a new programming language, it can't. Simply because there's not much data on it.\n\n\n2) Since AI cannot think for itself, you'll always get more or less the same output, especially in the fields where there is not much information available online.\n\n\n3) Since everyone has access to AI, there is a lot of AI slop code on the internet, including popular websites like GitHub. What this does is that it essentially creates many low quality solutions to problems that exist. Now, you and me as users, are obviously going to choose the top solution, which is almost certainly going to be of high quality and made by a human. AI does not produce answers to the hard problems that exist on the internet, it merely creates low quality solutions (to easy problems) that are an inferior copy of the high quality solutions already present on the internet.\n\n\n4) Most of the AI generated websites look the same and it's very, very easy to tell that they're AI generated. Even AI generated code has \"features\" to it that make it easy to deduce that it's made by AI. Since they all look the same, none of them stand up, especially because they do not have that human essence to them. Just take AI \"art\" for example. It's eerie and almost nobody prefers it to human made art. This, combined with the fact that AI has an infamous reputation in the developer (**NOT** vibe \"coder\" community) makes developers refrain from using AI made \"products\". And for the non techies? Saturation. They'll almost never choose a website that's vibe coded simply because a human made website will almost always be on top. Feel free to prove me wrong on this. Name one vibe coded website / repo that you didn't create yourself and that you use daily.\n\n\n5) AI is very smart for the first question that you ask it. For the second one, it's the same. For the third one, it gets a little dumber but it's still manageable. But, by the tenth one? It no longer retains the data from the first question and what it now produces is context less and hence inconsistent code with the project's infrastructure. Now, you could theoretically make it better by increasing the tokens and whatnot but most people aren't willing to pay for it and even if they do, the server will still limit you. I don't even want to get into the mess that AI is right now. The TLDR of it being NVIDIA and OpenAI investment loop.\n\n\n6) As mentioned above, AI can help you make features. But, how good is it at keeping track of them and connecting them? Spoiler alert - Not very good. Hence, there are gaps that leave security vulnerabilities in the codebase.",
+    "score": 6,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "Scorched_Scorpion",
+        "body": "thanks for your insights i needed this",
+        "score": 1,
+        "depth": 1
+      },
+      {
+        "author": "PETRA0_0",
+        "body": "I guess an AI boyfriend isn’t happening anytime soon then? Guess I’ll have to rely on human developers instead \\^\\^",
+        "score": 1,
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "author": "Ashitaaaa",
+    "body": "I mean if you already know the future and are stone cold in your beliefs,why do you even need any argument?",
+    "score": 4,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "Scorched_Scorpion",
+        "body": "I am shivering on the inside with fear. Yet to come accross a strong argument against AI",
+        "score": 3,
+        "depth": 1
+      },
+      {
+        "author": "Ashitaaaa",
+        "body": "Can understand the frustration then lol",
+        "score": 2,
+        "depth": 2
+      },
+      {
+        "author": "Ashitosh199",
+        "body": "Just asking, Is Ashita your real name 😭?",
+        "score": 1,
+        "depth": 3
+      }
+    ]
+  },
+  {
+    "author": "IronLyx",
+    "body": "Decades ago, people used to hand-assemble code. Then someone wrote an assembler.\n\nPeople stopped writing machine code and performing hand assembly. Instead, they started writing code in assembly language and this made it possible to do much more complicated stuff with computers. Software started becoming more and more complex.\n\nThen compilers were invented.\n\nPeople stopped using assembly language for regular software essentially overnight. Software Engineering didn't die, it evolved. Lots of new languages came about and the need for software engineers exploded.\n\nI think we are in a similar moment with AI. It's just another tool that makes it easier to build software. I don't think we're going to need less software - we're gonna need more software and hence more software engineers. Just like we don't need assembly language programmers anymore, probably most conventional programming languages may become obsolete or go behind the scenes. AI will become the primary tool for writing software.\n\nThe art and science of building software will not cease to exist - it will simply evolve into a slightly different thing.",
+    "score": 9,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "PinkkPussyPolitics",
+        "body": "Nah, this is false equivalence.. AI will certainly reduce the workforce drastically ",
+        "score": 3,
+        "depth": 1
+      },
+      {
+        "author": "IronLyx",
+        "body": "I hate how people just make a lazy statement as though they're the authority and others should just take their word for it and then disappear. If you have a reasoning/explanation for your claims, please feel free to share, but otherwise I call bull-shit.",
+        "score": 4,
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "author": "Ashamed_Fox_9923",
+    "body": "Idts it still can make everything from scratch or by Just simple prompt.\n\nYou need to be enough knowledgeable on the tech stack AI is using and guide throughout the process.\n\nIt can execute the stuff but optimization etc is your work.\n\nI'm building a website for college project since 3 months with so much stuff by following a proper planned structure using claude, gpt.\n\nI myself specify the AI stuff like where to use tanstack query, memoization, pagination etc stuff otherwise it messes the stuff.\n\nSame for the optimization part because i have to guide it about optimisation to use minimum api calls  etc.\n\n",
+    "score": 4,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Torzic",
+    "body": "people see ai generate a beautiful frontend in seconds and immediately conclude that developer jobs are finished... and honestly the concern is not completely unreasonable... ai is clearly making it much faster to write code and build things that earlier would take a lot more time...\n\nbut the logic usually stops too early... the assumption being made is that if developers become more productive then fewer developers will be needed... in reality things rarely work that way... when something becomes easier and cheaper to build the amount of it being created usually increases massively... software is not a fixed demand industry... the easier it becomes to build software the more people and businesses will try to build new things...\n\nanother important thing people overlook is that coding itself is only a small part of real software development... most of the real difficulty is understanding problems... designing systems... making sure everything works together... handling scale... fixing weird bugs... and maintaining systems over time... generating code is the easy part... making reliable systems is the hard part...\n\nai is very good at producing pieces of code... but software in the real world is rarely just pieces... it is large messy systems with many constraints and decisions that require judgment... that is where experienced engineers are still needed...\n\nin many cases ai might actually create more work for good engineers because now more code is being produced faster... which still needs to be reviewed... fixed... and integrated into larger systems...\n\nthe more realistic outcome is not that developers disappear but that the nature of the job changes... simpler routine work will likely shrink... while higher level thinking... system design... and problem solving become more valuable...\n\nthe bigger assumption that needs questioning is the idea that the world only needs a limited amount of software... it clearly does not... if building software becomes easier the amount of software being created will likely grow even faster... so the industry evolves rather than simply shrinking...",
+    "score": 4,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "Scorched_Scorpion",
+        "body": "Damn interesting point of view. I just learned html css and js. Honestly I spent a lot of time and built basic projects with them. but then seeing AI tools built it in seconds broke my heart",
+        "score": 1,
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "author": "West-Set-1632",
+    "body": "Keep wasting your time in this useless argument and someone else learning the right things will get the job.",
+    "score": 5,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "lib_progressive_23",
+    "body": "Yup that’s what I have been saying; the number of jobs will decrease, the entry barrier to fresher or new college graduate is higher than it was 5 years ago. More graduates compete for less number of available jobs giving the employers the bargaining chip.\n\nIt’s going to hit employment hard in the future. Many white collar workers will end up doing blue collar work for survival.",
+    "score": 6,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Sampurn31",
+    "body": "Okay so here me out!\nIt can be a Debatable take but \n1. The thing is AI is only good when you want to build something from scratch \nAnd as far as the notion of AI will replace your job comes from either College students who have not worked with any company where you don't build things from scratch every week or month or it comes from the influencer who wanna sell you courses and stuff\n2. Let's be practical Claude Code Max is around 25k in India thats how much these mass recruiters pay to freshers plus you need someone to review the code written by claude \n3. Obviously AI has to be part of your routine now at my company where I work cursor pro is given to everyone not because they want us to get replaced it by but utilise it in a way where we can complete our task sooner like now a 3 day task can be completed in a day\nSo that increases your efficiency plus you are not out of loop from the AI world\n4. You have to keep adapting I can't just go tomorrow saying let's use grok for coding whereas if I'm listening the market I know claude is far better in it\nSo understanding the usecase is also part of adapting\n\nSo what I believe is you will get replaced by AI only when you stop adapting and are rigid with your process ",
+    "score": 2,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "WayZealousideal2",
+    "body": "I do see your point of the argument and there is a possibility of what you've said coming true in the short term. But if the rate of progress of AI's capabilities continue at this rate or expand further (which is unlikely, I believe we might need a new generation of algorithms) this opens up many more possibilities for humanity like space colonization, which could end up increasing jobs a lot more (of course very optimistic future). \n\nBut realistically these companies will not be able to maintain their current burn rate and eventually API costs will go up as interest rates don't seem to be coming down anytime soon, so they won't be able to borrow forever and have to become profitable or be bought up by Big Tech. From the stats I am seeing online, people are paying $200 per month for Claude and getting $2000-$5000 usage out of it. If the price finally goes up to the real cost, it is an open question on whether to have a Claude subscription for $5000 who you cannot hold accountable or hire 2-3 devs from India and other third world countries who you can hold accountable. \n\nOf course there would be scenarios where the former would be preferable over the latter and vice versa but the fact that inherently LLMs are statistical prediction machines (extremely good ones) means that human oversight will always be needed to verify final products/production software. \n\nAnd if the prices remain same or intelligence and code becomes cheaper, than there are many more possibilities for new software itself, which could increase jobs (Jevons Paradox).\n\nUltimately I don't know the answer but it's best to prepare yourself for multiple scenarios. Be a really good coder with AI tools if they really takeover and change the industry forever. Be ready to go back to writing a decent chunk of code manually if these LLM makers crash and burn or have to raise prices 10-20X to maintain overall profitability.",
+    "score": 2,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Hefty-Builder-1335",
+    "body": "You are not wrong to think AI will reduce some kinds of work. That part of the argument is actually fair. But where the discussion usually goes wrong is assuming that software jobs are mainly about writing code from scratch.\n\nIn real engineering work, coding is often the smallest part of the job. Let me explain what actually happens in most teams. First, AI can generate code, but it doesnot understand business requirements well. When a company asks for a hospital management system, the real problem isn’t generating pages. The problem is understanding workflows, regulations, edge cases, integrations with other systems, security, data privacy, and long-term maintenance. Those requirements are usually messy and constantly changing. Second, generated code often works in isolation but breaks in real systems. Production software has to deal with scaling, security vulnerabilities, database issues, monitoring, versioning, legacy systems, and integration with other services. Those are areas where AI still struggles without human engineers guiding it. Third, most engineering work is maintenance and evolution, not creation. Huge systems already exist, and companies spend years improving them. Understanding old codebases, debugging failures, and designing reliable systems requires context and judgment. What AI is actually doing right now is making developers faster, similar to what happened when frameworks, libraries, and cloud platforms appeared. Each time productivity increased, people predicted fewer jobs. Instead, companies built more software because it became cheaper to build.\n\nYour point about job reduction isn’t impossible, though. What’s more likely is this: there may be fewer entry-level roles that only involve simple coding, but engineers who can design systems, solve problems, and work with AI tools will still be in demand. In other words, AI is probably changing what software engineers do, not eliminating the need for them.",
+    "score": 2,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "Scorched_Scorpion",
+        "body": "Your points are very convincing fellow human. thanks for the response",
+        "score": 1,
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "author": "Worldisshit23",
+    "body": "Let me give you a very basic argument.\n\nAI outputs are stochastic in nature. That is, they are optimised to reduce error, not to eliminate it and are always accompanied with an error rate. LLMs obviously mask this, but each subsequent token generation introduces additional error, which keeps compounding on top of the previous ones.\n\nWhen it reaches levels of stupid, we call it hallucination. An accuracy of even 99% over 100 times becomes 56%. Over a 1000 tokens? Effectively 0.\n\nHuman outputs are largely deterministic. Because when a human \"learns\" they understand systems. When I say 1+1 = 2, I understand the system, how addition occurs. I am not saying its 2 because I have seen it to be 2 a lot of times in my life.\n\nWhen it comes to enterprise code, well defined outputs are a MUST. But when you have an LLM generating it, the LLM itself doesn't understand it, and nor can it deterministically give you a report on that code.\n\nSo what happens? You either need a human to baby sit it, or you effectively put into production a code that you dont understand, and will most certainly break.\n\nAnd no, unless and until there is a major breakthrough, LLMs are not going to \"exponentially get better\". Jeez, any large growth can look exponentially when you just see a small part of the graph. Everything flatlines in the end.\n\nNote: people who are well learned in this space can absolutely debate my ppints and how some of my assumptions are wrong, and how there are ways to mitigate the error rate. Sure, it may be possible, but it still doesn't beat the iterative algorithmic and course corrective process that a human takes. LLMs cant course correct when they generate code. And that leads to derailment and drift over long periods, regardless of methodologies.",
+    "score": 2,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "[deleted]",
+    "body": "Why are you wasting money on a hospital management system, just search \"hospital management system open source\" and clone that, claude itself is trained on that",
+    "score": 4,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Acceptable_Set1147",
+    "body": "People thought the same thing when sql came out, jobs won’t end it’s just that more work will be done by a single guy.\n\n\nSame happened when spinning Jenny was invented or when harvesters were invented,etc. \n\n\nThis tale is as old as time",
+    "score": 3,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "ComplexBullfrog8114",
+        "body": "Comparing sql with AI is diabolical.",
+        "score": 10,
+        "depth": 1
+      },
+      {
+        "author": "Acceptable_Set1147",
+        "body": "Not really, a non technical guy won’t bother to learn coding just to prof read code. \n\n\nAi is just a tool nothing more. Ai does fuck ups wuite frequently which might not be caught by a non coder",
+        "score": 1,
+        "depth": 2
+      },
+      {
+        "author": "Scorched_Scorpion",
+        "body": "Logically speaking, won't more work by same guy mean lesser jobs eventually?",
+        "score": 3,
+        "depth": 1
+      },
+      {
+        "author": "Acceptable_Set1147",
+        "body": "Yes, but it also opens more jobs. \n\nLike spinning Jenny and harvesters ate a lot of jobs but also produced jobs as they needed manpower in their manufacturing. The net in long term was positive only.\n\nIt has remained true for all tech advancements so I’m optimistic.\n\nWhat jobs will be made? Not sure we are like the peasants who were afraid about the jobs it was taking blind to the jobs it will create. So no idea what jobs it will make, but hopefully it will",
+        "score": 2,
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "author": "HousingAdept1087",
+    "body": "AI can't innovate I feel. I don't think any llm would have come up with a paper like \"Attention is all you need\" on its own - the paper that introduces the architecture which forms a base in all kind of llms or so called AI which we are using today. So jobs that require some form of innovation can't be replaced by AI is what I feel.",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Popular-Assistant607",
+    "body": "So if AI replaces majority of the jobs, and many people will become jobless then what is it that we'll use all this ai for ,if people don't have money they won't buy stuff and thus a lot of the jobs that AI replaces wouldn't have anymore demand as there is no customer base. ",
+    "score": 1,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "Vaibhav23431",
+        "body": "ai companies massively burning money and being highly unprofitable is the only positive i see nowadays related to ai",
+        "score": 0,
+        "depth": 1
+      },
+      {
+        "author": "Popular-Assistant607",
+        "body": "Yeah I don't really see how ai would be able to replace majority of the people and still be able to run profitably ",
+        "score": 1,
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "author": "Honest_Injury9874",
+    "body": "AI is great at creating prototypes or simple apps, but real-world systems are messy and constantly changing. That kind of long-term problem solving and system thinking is where human developers still play a big role",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Meowllionairee",
+    "body": "Until ai is able to create Linux kernel and Git level projects we can say it won't.\n\nThe day it does we will have a lot more problems than our jobs",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "kachorilal",
+    "body": "bro try understanding and enterprise level product. AI loses context exponentially.",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Rare_Coffee_8611",
+    "body": "here's the BIGGER problem here, today AI is taking the BULK roles, those jobs which included\n\n1. writting code\n\n2. Debugging errors.\n\n3. very routine jobs.\n\n BUT these r the exact jobs which have thousands of openings, BUT NOW, no, these r being gobbled by AI, and even worse, In return , there r no NEW jobs.",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Baskervillenight",
+    "body": "Did better farm equipment kill agriculture ?\nDid medical devices make nurses irrelevant ?\nPpl need more software, so more hiring will happen on software. Every business will go for custom software than googles or saps solution.",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "UnluckyCry741",
+    "body": "You are hitting on one of the biggest debates in the tech world right now! You are absolutely right—CEOs like Mark Zuckerberg, Elon Musk, and especially Jensen Huang (the CEO of Nvidia, who recently went viral for saying people shouldn't learn to code) are heavily predicting that AI will handle the bulk of writing raw software.\n\nHowever, the headline \"AI is replacing programmers\" is a bit of a misconception. AI is replacing code monkeys—people who just memorize syntax and type out repetitive code. It is not replacing problem solvers.\n\n Here is the breakdown of what the tech giants advise you to stop focusing on, and what you should double down on instead.\n\n🤖 What to Leave to the AI (The Outdated Skills)\n\n * Memorizing Syntax: You no longer need to memorize exactly how to write a Python for loop, a complex SQL query, or a React component from scratch. AI can generate boilerplate code instantly.\n\n * Writing Unit Tests: AI is fantastic at looking at a function and writing 20 test cases to make sure it doesn't break. Leave the tedious testing code to the bots.\n\n * Basic Debugging: Staring at a screen for three hours to find a missing semicolon or a weird type error is over. You paste the error log into an AI, and it tells you exactly where you messed up.\n\n * Starting from a Blank Page: You should rarely write a script from scratch anymore. The new normal is asking AI to generate the first draft, and you take it from there.\n\n🧠 What to Learn Instead (The \"Future-Proof\" Skills)\n\nTo stay valuable, you need to move up a level. You need to stop acting like the bricklayer and start acting like the architect.\n\n1. Systems Thinking &amp; Architecture\nAI is terrible at the big picture. It can write a Python script, but it doesn't know how that script should securely connect to a database, talk to a mobile app, and handle 10,000 users at once. Learning how different pieces of technology fit together (Systems Design, Cloud Architecture) is incredibly valuable.\n\n\n2. Deep Domain Expertise\nJensen Huang (Nvidia) recently said that the future of coding belongs to the experts in other fields. If you deeply understand biology, finance, agriculture, or mechanical engineering, you can now use AI to build software specifically for that industry without needing a Computer Science degree. Domain knowledge + AI is a superpower.\n\n\n3. \"Managerial\" Prompting &amp; Code Review\nIf AI is your junior developer, you are the senior developer. Your job is to give it incredibly clear, logical instructions (Prompt Engineering) and, most importantly, verify its work. You still need to know enough about coding to look at the AI's output and say, \"Wait, this is inefficient,\" or \"This introduces a security flaw.\"\n\n\n4. Problem Formulation (Computational Thinking)\nAI only solves the problem you give it. The hardest part of software engineering isn't writing the code; it's figuring out what exactly the problem is and breaking it down into logical steps. If you can define a problem perfectly, the AI can type it out for you.\n\n\n5. Adaptability &amp; Quick Iteration\nThe tools change every three months right now. The most valuable skill is the ability to pick up a completely new AI tool, figure out how it works in a weekend, and immediately apply it to your workflow.\nThe Reality Check\nThink of AI coding like a calculator. When the calculator was invented, mathematicians didn't lose their jobs; they just stopped doing long division by hand and started doing more complex, interesting math.\n\nGiven by gemini AI",
+    "score": 1,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "Scorched_Scorpion",
+        "body": "Brochacho I am here for human written answers ",
+        "score": 1,
+        "depth": 1
+      },
+      {
+        "author": "UnluckyCry741",
+        "body": "I am 12thie I also don't know so can u plz summarise what the seniors so far told about your question plz answer me🙏",
+        "score": 1,
+        "depth": 2
+      }
+    ]
+  },
+  {
+    "author": "Admirable-East3396",
+    "body": "i think people grossly misunderstand the job of software/webdevs here making things is a small part, optimization and managing it regularly is the real and hard part, ai cant do it nor anyone was paying you good money for just building a site, template and no code site makers existed before ai.\n\non the flip side it will create more jobs if companies keep inserting ai who hallucinate and fill theri products with errors.  \nai just made the first part eay but overall the things are still same.",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "nemesis1311",
+    "body": "There are 100s of hospital management system projects available online which are suitable and sophisticated enough for a student or a junior developer. But a real world application requires  security/ availability/ architecture/ maintenance/ feature additions, you need someone to do that.",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Senior_Relief3594",
+    "body": "Yeah go ahead and deploy those and you will understand the argument like many corporations are starting to.\n\nThe market has and is changing from writing software to supervising AI written software.",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "iamfidelius",
+    "body": "A decade ago programming was way different to what it is now.\n\nAi can't be creative at present it can work with what is already built but it can create something entirely new.\n\nIt will definitely take jobs in service companies though where the skill level is very low ",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "euneva_krap",
+    "body": "CSE in India has reduced to a $20/month and a brain to ask the right question. ",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Attack_Helicopter_17",
+    "body": "Because real world software engineering is not just producing a pretty frontend.\n\nAI has very little reasoning skill if any at all.\nIt only looks that amazing for simple college project type work.\nOnce you remove humans and give it a legacy codebase and need to handle security and maintain that code for decades, also handle backend and infrastructure, you'll see how quickly it destroys everything.\n\nSo, no, software engineer jobs are not going anywhere anytime soon. AI is just a tool which helps improve productivity till we build an AI which can reason, actually think and is creative, learn on its own and come up with new stuff on its own.\n\nAlso, maybe unrelated but current state of AI is very expensive and damaging the environment which these companies don't seem to care about but I'd like to see that change as well.",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "cifix14",
+    "body": "Being a full stack developer, it's still no, it may happen in future. \n\nYes it can build simple sites with few commands. I have built them.\n\n\nBut anything complicated it's still not that refined. \nEven after burning 10 prompts it won't resolve.\nThen after i debug and mention what's happening it will fix it. \n\nSame with backend, missed edge cases, logic flaws, missed consistency. \n\nThe sheer number of you are absolutely right i see everyday using them infuriates me. \n\nAt this point it's only as good as the users knowledge. \n\nIf you keep something you don't understand it will bite you. \n\nBut it's a lot faster, 1 error would waste hours, now it can identify it in seconds.\n\nIt can do the work we were doing in a day in an hour. \n\n",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "EducationalPast7410",
+    "body": "Said by someone who hasn't built anything ever",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "senor_bruh",
+    "body": "The only people I’ve seen genuinely believe this argument are either people who aren’t from tech, or are from tech but understand the underlying fundamentals very little(not at all most of the times). Take any field aside from web dev(which was seen as a new grad field wayyy before modern llms) and ai not only gives you incorrect code but straight up gives up after a while. I dare you to take a a good first issue on any oss repo related to systems or graphics programming and whatever tool you want and i guarantee you aren’t coming out of it with the pull request merged",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Gold-Acanthisitta695",
+    "body": "product is not about feature. btw have you worked on any project which is used by users?",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Intervueio",
+    "body": "Honestly? You're right that it'll reduce jobs, we won't sugarcoat that.\n\nBut \"fewer developers building more software\" is historically what every productivity boom looks like. The typewriter didn't kill writers. Excel didn't kill accountants. It killed the entry-level grunt work version of the job.\n\nThe real risk isn't AI. It's developers who use AI vs those who don't. That gap is going to be brutal.",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "XoX-o-",
+    "body": "go ask a guy who vibe coded an app and got cyber attacks, huge vercel bills and so on.\n\nFact of the matter is that CS pipeline is closed or closing for majority of people in india.\n\nLook for new industries, preferably traditional ones ",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "boomereng7000",
+    "body": "Others have already given good answers about the technical limits of current LLMs. I want to look at it mainly from an econ perspective.\n\nThink about how firms actually work. At the top, CEOs set high-level goals. Those get passed down to VPs, then to directors and managers, and eventually into specific tasks for engineers. Everyone in that chain adds structure and helps translate broad goals into something concrete. Now suppose AI tools get good enough that a manager can hand them a detailed product spec and get a lot of the implementation done directly, without engineers being as much of a bottleneck. In that world, maybe some managers can do more with fewer developers, or maybe a smaller number of very strong engineers can do the work that previously required a much larger team.\n\nThat kind of efficiency would reduce the cost of building software and delivering digital products. Lower costs usually mean lower prices, more adoption, and more overall demand. Historically, when productivity rises, economies often do not just shrink labor demand permanently. They also create new categories of work. That is a big part of what happened after the Industrial Revolution. So in one plausible scenario, AI reduces the amount of routine software work, but also creates new kinds of higher leverage engineering roles. You can think of these as \"super SWE\" jobs, where a smaller number of engineers build and oversee much more.\n\nBut this optimistic story depends on AI still having real limitations. If AI becomes so capable that it can reliably replace not just engineers, but also several layers above them in the decision-making chain, then the picture changes a lot. At that point, the human bottleneck disappears, and yes, software engineering as we know it could shrink dramatically.\n\nSo I think both sides are partly right. Yes, better AI will very likely reduce the number of developer jobs needed for some kinds of work. We are already seeing hints of that. At the same time, \"reduce jobs\" is not the same as \"eliminate all jobs.\" Even if traditional SWE roles shrink, there will likely be new areas where humans are still the bottleneck.  The real question is not whether software jobs change. They definitely will. The question is how much of the workflow remains human-led, and whether new valuable roles appear fast enough to absorb the people displaced. Based on history, my guess is that both will happen: fewer conventional SWE jobs, but new roles around oversight, productization, integration, evaluation, and whatever new bottlenecks AI cannot fully remove. ",
+    "score": 1,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "Scorched_Scorpion",
+        "body": "Interesting take I love it",
+        "score": 1,
+        "depth": 1
+      }
+    ]
+  },
+  {
+    "author": "Top-Candle1296",
+    "body": " even app designing ai like artusai which gives you MVPs in minutes ",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "its_your_",
+    "body": "I just want to know that if the developer and engineers learn from the document of different language, services, etc then how ai can't just read and implement that , is the same as human learning , and about the backend as of now it can help u build medium complexity software with a little bit help of human interaction ",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "ThFlameAlchemist",
+    "body": "Just going to leave this here\n\nhttps://www.tomshardware.com/tech-industry/artificial-intelligence/amazon-calls-engineers-to-address-issues-caused-by-use-of-ai-tools-report-claims-company-says-recent-incidents-had-high-blast-radius-and-were-allegedly-related-to-gen-ai-assisted-changes",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "giantyglobal",
+    "body": "I get why people think that...the demos are impressive 👀 But in real projects, writing code is the easiest part. The hard part is rarchitecture, security, integrations, scaling, and maintaining. \n\nWhat AI is clearly doing though is just changing the productivity curve. Yeah, can not deny that it may reduce some types of work. But software development has always evolved like this with every big tool shift...🤔 About job, I guess the question should be : how developers stay valuable when coding isn’t the bottleneck anymore ?",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "tombstonebase",
+    "body": "I read somewhere that running these large models cost more than hiring humans ",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "General_Row_6285",
+    "body": "AI is more like a tool to increase the productivity, it cannot replace an entire job or anything but it sure can lead to smaller workforces due to increased productivity. ",
+    "score": 1,
+    "depth": 0,
+    "replies": []
+  },
+  {
+    "author": "Avoid-me-6666",
+    "body": "If you’d have real development experience in the industry, you’d understand thar argument kid ",
+    "score": 1,
+    "depth": 0,
+    "replies": [
+      {
+        "author": "Scorched_Scorpion",
+        "body": "mr adult fyi I am still a college student and I don't understand that argument hence this post. ",
+        "score": 1,
+        "depth": 1
+      },
+      {
+        "author": "Avoid-me-6666",
+        "body": "Here’s my piece:\n\nDeveloping a piece of software is just the tip of the iceberg. Real work goes in maintaining and scaling those software based on needs and requirements, the design and architectural decisions you make as an engineer are much more important than just spitting out a working code within a few minutes.\n\nIf you get in the industry you’d see the sheer sizes of codebases and how poor decisions lead to maintenance hell.\n\nAI is good at hacking software but very poor at designing it the RIGHT way. If you want it do be right you need to write thorough gaurd rails, almost like an essay and it would still deviate and would still require your thorough review.\n\nIts a tool where hallucination is in its nature its a black box we’re very far from solving that architectural complexity. Till then, humans will always write superior code than AI, even juniors yes. You know why? Because they can take accountability and human context is far superior than AI. A junior dev is less likely to repeat a mistake when compare to AI, you can ask a human the hows and the whys, but not an AI.\n\nIn my experience I would like to use AI as a replacement of googling problems, its a good aggregator, and for auto complete, wont trust it to take decisions (coding decisions) on my behalf \n",
+        "score": 1,
+        "depth": 2
+      }
+    ]
+  }
+]
