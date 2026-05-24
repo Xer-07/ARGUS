@@ -2,11 +2,15 @@ import json
 import numpy as np
 from sklearn.cluster import KMeans
 
-# Load
+#--------------Load----------
+
 with open("thread_embeddings.json", 'r', encoding='utf-8') as f:
     comments = json.load(f)
 
-# Flatten
+
+
+#----------Flatten-----------
+
 all_comments = []
 def extract_comments(comment):
     all_comments.append(comment)
@@ -16,7 +20,10 @@ def extract_comments(comment):
 for comment in comments:
     extract_comments(comment)
 
-#KMeans
+
+
+#---------KMeans----------
+
 embeddings = np.array([comment['embedding'] for comment in all_comments])
 inertias = []
 
@@ -39,10 +46,10 @@ for i in range(best_k):
         if comment['cluster'] == i:
             print(comment['body'][:100])
 
-with open("thread_kmeans.json", 'w', encoding='utf-8') as f:
-    json.dump(all_comments, f)
 
-#Influence
+
+
+#---------------Influence------------------
 
 def calculate_influence(comment):
     score = comment['score']
@@ -61,10 +68,11 @@ srt_comm = sorted(all_comments, key = lambda x: x['influence'], reverse = True)
 for comment in srt_comm[:5]:
     print(comment['influence'], "----->", comment['body'])
 
-with open("thread_influence.json", 'w', encoding='utf-8') as f:
-    json.dump(all_comments, f, ensure_ascii=False, indent=4)
 
-#Representative
+
+
+#---------Representative---------------
+
 def get_representative(cluster):
     rep = max(cluster, key=lambda c: c['influence'])
     return rep
@@ -73,6 +81,32 @@ for cluster_id in range(best_k):
     rep = get_representative(cluster)
     print(f"\nCluster {cluster_id} representative:")
     print(rep['body'][:150])
+
+
+
+#-------Outlier--------------
+
+def cos_sim(a, b):
+    similarity = np.dot(a,b) / (np.linalg.norm(a) * np.linalg.norm(b))
+    return similarity
+
+def avg_dist(embedding, centroids):
+    distances = []
+    for centroid in centroids:
+        sim = cos_sim(embedding, centroid)
+        dist = 1 - sim
+        distances.append(dist)
+        return np.mean(distances)
+
+centroids = kmeans.cluster_centers_
+
+for comment in all_comments:
+    embedding = np.array(comment['embedding'])
+    comment['outlier_score'] = avg_dist(embedding, centroids)
+
+outlier = max(all_comments, key=lambda c: c['outlier_score'])
+print("THE OUTLIER:")
+print(outlier['body'])
 
 # Save
 with open("thread_final.json", 'w', encoding='utf-8') as f:
