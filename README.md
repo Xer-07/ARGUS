@@ -1,63 +1,92 @@
-# ARGUS — Argumentative Graph & Understanding System
+# ARGUS — Argument Graph & Understanding System
 
 <p align="center">
   <img src="assets/banner.png" alt="ARGUS Banner" width="100%">
 </p>
 
-> Cut through any Reddit thread in seconds. No endless scrolling.
+> Paste a Reddit URL. Get the argumentative skeleton of the entire thread in seconds.
 
-ARGUS is a graph-based argument mapping engine for online conversations. 
-Paste a Reddit thread URL → ARGUS builds a semantic argument graph underneath 
-→ surfaces structured intelligence on top.
+ARGUS treats a Reddit thread not as a list of text but as a **directed argument graph** — mapping claims, influence, and semantic clusters — so you can understand 500 comments in under 2 minutes.
 
 ---
 
-## What it does
+## The Core Idea
 
-Most Reddit summarizers feed comments into an LLM and get a paragraph back.  
-ARGUS builds the argument structure first — mathematically — then uses an LLM 
-only to articulate what the graph already found.
+Every other Reddit summarizer feeds comments into an LLM and gets a paragraph back. The LLM decides what matters.
+
+ARGUS builds argument structure **mathematically first** — then uses an LLM only to articulate what the graph already found.
 
 **The graph is the brain. The LLM is just the voice.**
 
 ---
 
-## Planned Output (per thread)
+## Output (per thread)
 
-- **Thread Verdict** — overall consensus or lack of it, influence-weighted
-- **Argument Clusters** — distinct positions, each represented by the most original comment
-- **Claim Map** — visual graph of which arguments support or contradict each other
-- **The Outlier** — most semantically unique take in the entire thread
-- **Query Box** — ask questions, get answers from the thread's own content
+| Feature | What it is |
+|---|---|
+| **Thread Verdict** | One paragraph — consensus or lack of it, grounded in influence scores |
+| **Argument Clusters** | 5–7 distinct positions, each represented by the highest-influence comment from that cluster |
+| **Claim Map** | Visual directed graph — which arguments support or contradict each other |
+| **The Outlier** | The most semantically distant comment from all clusters — often the most interesting take |
+| **Query Box** | Ask questions, get answers from the thread's graph — not LLM memory |
 
 ---
 
-## Tech Stack (in progress)
+## How It Works
 
-- `Python` — core language
-- `requests` — Reddit JSON fetching (no API key needed)
-- `sentence-transformers` — comment embeddings
-- `scikit-learn` — KMeans clustering
-- `Neo4j` — graph database for argument nodes and edges
-- `Google Gemini API` — LLM summarization
-- `FastAPI` — backend
-- `Streamlit` — frontend
+```
+Reddit URL
+    → fetch thread via .json endpoint
+    → clean and filter comments
+    → encode every comment as a 384-dim embedding (sentence-transformers)
+    → KMeans clustering with auto-selected K (elbow method)
+    → influence score per comment: (upvotes × 0.4) + (reply_count × 0.3) + (depth_penalty × 0.3)
+    → representative comment per cluster (highest influence)
+    → outlier detection (max average cosine distance from all centroids)
+    → Neo4j graph: nodes = comments, edges = support/contradiction/extension
+    → Gemini generates Thread Verdict from graph findings
+    → FastAPI + Streamlit serve the result
+```
+
+---
+
+## Tech Stack
+
+| Layer | Tool |
+|---|---|
+| Data fetching | `requests` — Reddit `.json` endpoint, no API key needed |
+| Embeddings | `sentence-transformers` — all-MiniLM-L6-v2 |
+| Clustering | `scikit-learn` KMeans + elbow method |
+| Graph DB | `Neo4j` Aura |
+| LLM | `Google Gemini API` |
+| Backend | `FastAPI` |
+| Frontend | `Streamlit` + `pyvis` |
 
 ---
 
 ## Current Progress
 
+**Phase 1 — Data Collection**
 - [x] Fetch Reddit thread via `.json` trick (no PRAW needed)
-- [x] Parse top-level comments with author, score, body
-- [x] Extract first-level replies per comment
-- [x] Filter deleted comments and AutoModerator noise
-- [ ] Recursive deep reply traversal
-- [ ] Sentence-transformer embeddings
-- [ ] KMeans clustering
+- [x] Recursive deep reply traversal at all depths
+- [x] Structure each comment: author, body, score, depth, parent
+- [x] Filter deleted comments, AutoModerator, comments under 5 words
+- [x] Refactored into clean functions: `fetch_thread`, `clean_comments`, `save_comments`
+
+**Phase 2 — Embeddings + Graph Building**
+- [x] Sentence-transformer embeddings on all comments and replies
+- [x] KMeans clustering with automatic K selection via elbow method
+- [x] Influence score calculation per comment
+- [x] Representative comment selection per cluster
+- [x] Outlier detection — most semantically distant comment
 - [ ] Neo4j graph construction
-- [ ] Gemini summarization
+- [ ] Typed edge classification (supports / contradicts / extends)
+
+**Phase 3–6**
+- [ ] Gemini LLM summarization
 - [ ] FastAPI backend
 - [ ] Streamlit frontend
+- [ ] Deployment
 
 ---
 
@@ -66,20 +95,18 @@ only to articulate what the graph already found.
 ```bash
 git clone https://github.com/GK-171107/Argus.git
 cd Argus
-pip install requests
-python base.py
+pip install requests sentence-transformers scikit-learn numpy
+python base.py        # Phase 1: fetch and clean
+python pipeline.py    # Phase 2: embed, cluster, score, outlier
 ```
 
 ---
 
 ## Status
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-Active development. First year CSE undergrad building this as a research + portfolio project.
+Active development — first year CSE undergrad building this as a research + portfolio project.  
+Target: deployed system + undergraduate research paper.
 
 ---
 
-*Built by Ganeshkumar V*
+*Built by Ganeshkumar V — B.Tech CSE, Amrita Vishwa Vidyapeetham*
