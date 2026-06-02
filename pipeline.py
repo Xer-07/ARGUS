@@ -1,5 +1,6 @@
 import json
 import numpy as np
+import uuid
 from sklearn.cluster import KMeans
 
 #--------------Load----------
@@ -13,6 +14,8 @@ with open("thread_embeddings.json", 'r', encoding='utf-8') as f:
 
 all_comments = []
 def extract_comments(comment):
+    if 'id' not in comment:
+        comment['id'] = str(uuid.uuid4())
     all_comments.append(comment)
     for reply in comment.get('replies', []):
         extract_comments(reply)
