@@ -79,8 +79,8 @@ Reddit URL
 - [x] Influence score calculation per comment
 - [x] Representative comment selection per cluster
 - [x] Outlier detection — most semantically distant comment
-- [ ] Neo4j graph construction
-- [ ] Typed edge classification (supports / contradicts / extends)
+- [x] Neo4j graph construction
+- [x] Typed edge classification (supports / contradicts / extends)
 
 **Phase 3–6**
 - [ ] Gemini LLM summarization
