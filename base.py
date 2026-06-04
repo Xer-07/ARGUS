@@ -1,5 +1,6 @@
 import requests
 import json
+import time
 
 
 def extract_replies_recursively(comment_or_reply, depth=0):
@@ -16,6 +17,7 @@ def extract_replies_recursively(comment_or_reply, depth=0):
         if child['kind'] == 't1':
             reply_dict = {
                 'author': child['data']['author'],
+                'id': child['data']['id'],
                 'body': child['data']['body'],
                 'score': child['data']['score'],
                 'depth': depth
@@ -32,11 +34,13 @@ def fetch_thread(url):
 
     json_url = url + ".json"
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        "User-Agent": "ARGUS:v0.1 (by /u/elourastudio01)"
     }
-
-    # Fetch from Reddit
+    #Fetch from Reddit
     response = requests.get(json_url, headers=headers)
+    time.sleep(2)
+    print(response.status_code)
+    print(response.text[:200])
     data = response.json()
     comments = data[1]['data']['children']
 
@@ -47,12 +51,15 @@ def fetch_thread(url):
         if comment['kind'] == 't1':
 
             author = comment['data']['author']
+            id = comment['data']['id']
             body = comment['data']['body']
             score = comment['data']['score']
+
 
             # Create comment dict
             comment_dict = {
                 'author': author,
+                'id': id,
                 'body': body,
                 'score': score,
                 'depth': 0,  # Top-level comments have depth 0

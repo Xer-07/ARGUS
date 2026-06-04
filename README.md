@@ -93,7 +93,7 @@ Reddit URL
 ## Setup
 
 ```bash
-git clone https://github.com/GK-171107/Argus.git
+git clone https://github.com/Xer-07/Argus.git
 cd Argus
 pip install requests sentence-transformers scikit-learn numpy
 python base.py        # Phase 1: fetch and clean
