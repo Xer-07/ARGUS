@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 import numpy as np
 from sklearn.cluster import KMeans
+import json as json_parser
 
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -58,7 +59,17 @@ def build_prompt(representatives):
         prompt += f"Argument: {rep['body'][:100]}\n\n"
 
     prompt += "Generate a Thread Verdict: one paragraph summarizing the overall argumentative structure of the thread based ONLY on the provided graph findings. Identify the dominant viewpoints, major disagreements, and the most influential positions. If the thread lacks consensus, explicitly describe the division. Ground the verdict in the cluster representatives, influence scores, and graph relationships rather than raw comment frequency. Maintain a neutral, analytical tone and avoid inventing arguments not present in the data."
-
+    prompt += """
+        Return your response as valid JSON only. No prose, no markdown, no backticks.
+        Use exactly this structure:
+        {
+            "verdict": "one paragraph...",
+            "key_arguments": ["arg1", "arg2", "arg3"],
+            "confidence": 0.0 to 1.0
+        }
+        confidence reflects how clear the consensus or division is — 
+        1.0 = very clear, 0.0 = completely fragmented.
+        """
     return prompt
 
 def generate_verdict(representatives):
@@ -67,6 +78,11 @@ def generate_verdict(representatives):
         model="llama-3.3-70b-versatile",
         messages=[{"role": "user", "content": prompt}]
     )
-    print(response.choices[0].message.content)
-
+    raw = response.choices[0].message.content
+    try:
+        result = json_parser.loads(raw)
+        print(json_parser.dumps(result, indent=2))
+    except json_parser.JSONDecodeError:
+        print("LLM didn't return valid JSON. Raw output:")
+        print(raw)
 generate_verdict(representatives)
