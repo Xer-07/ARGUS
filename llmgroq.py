@@ -56,11 +56,10 @@ for cluster_id in range(best_k):
     cluster = [c for c in all_comments if c['cluster'] == cluster_id]
     rep = get_representative(cluster)
     representatives.append(rep)
+    cluster_stats.append({"cluster_id": cluster_id, "size": len(cluster), "total_influence": sum(c['influence'] for c in cluster) ,  "avg_influence" : np.mean([c['influence'] for c in cluster]), "representative": get_representative(cluster)["body"][:200]})
+dominant_cluster = max(cluster_stats, key=lambda x: x["total_influence"])["cluster_id"]
 
-
-
-
-def build_prompt(nodes, all_comments):
+def build_prompt(nodes, all_comments, cluster_stats, dominant_cluster):
     total = len(all_comments)
     max_inf = max(c['influence'] for c in all_comments)
     avg_inf = sum(c['influence'] for c in all_comments) / total
@@ -75,11 +74,13 @@ def build_prompt(nodes, all_comments):
 
     prompt += "CLUSTER REPRESENTATIVES (highest influence node per cluster):\n\n"
 
-    for rep in nodes:
-        prompt += f"[Cluster {rep['cluster']}] Influence: {rep['influence']:.2f} | Author: {rep['author']}\n"
-        prompt += f"Position: {rep['body'][:200]}\n\n"   # 200 chars, not 100
-
-    prompt += """
+    for stat in cluster_stats:
+        prompt += f"[Cluster {stat['cluster_id']}] Size: {stat['size']} | "
+        prompt += f"Total Influence: {stat['total_influence']:.2f} | "
+        prompt += f"Avg Influence: {stat['avg_influence']:.2f}\n"
+        prompt += f"Representative: {stat['representative']}\n\n"
+    prompt += f"""
+GRAPH-COMPUTED DOMINANT CLUSTER: {dominant_cluster} (do not override this)\n\n"
 TASK: Generate a structured Thread Verdict as a JSON object only. No prose before or after. No markdown.
 
 Reasoning requirements before writing the verdict:
@@ -88,14 +89,14 @@ Reasoning requirements before writing the verdict:
 - Is there a clear winner in the discourse, or genuine division?
 - What is the structural shape of this conversation — consensus, bipolar split, fragmented, or one-sided?
 
-Return exactly:
-{
-  "verdict": "2-3 sentence analytical summary grounded in influence scores and cluster structure, not comment content alone",
-  "dominant_cluster": <cluster_id of highest total influence>,
+Return exactly this JSON:
+{{
+  "verdict": "2-3 sentence analytical summary grounded in influence scores and cluster structure",
+  "dominant_cluster": {dominant_cluster},
   "structural_shape": "consensus | bipolar_split | fragmented | one_sided",
   "key_arguments": ["claim from cluster X", "claim from cluster Y", "claim from cluster Z"],
   "confidence": "high | medium | low"
-}"""
+}}"""
 
     return prompt
 
@@ -112,7 +113,7 @@ def generate_verdict(all_comments, representatives):
         nodes = get_top_nodes(all_comments, n=10)
     else:
         nodes = representatives
-    prompt = build_prompt(nodes, all_comments)
+    prompt = build_prompt(nodes, all_comments, cluster_stats, dominant_cluster)
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[{"role": "user", "content": prompt}]
