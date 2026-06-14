@@ -1,13 +1,13 @@
 import json
-from google import genai
 from dotenv import load_dotenv
 import os
 import numpy as np
 from sklearn.cluster import KMeans
-
+import json as json_parser
+from groq import Groq
 
 load_dotenv()
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 with open("thread_final.json", 'r', encoding='utf-8') as f:
     comments = json.load(f)
@@ -46,27 +46,72 @@ for cluster_id in range(best_k):
     rep = get_representative(cluster)
     representatives.append(rep)
 
-def build_prompt(representatives):
-    prompt = "You are the voice of ARGUS.Consider you are a Senior graph architect and analyzer with the greatest insights with core level understanding of systems which are built argumentative.\n\n"
-    prompt += "About ARGUS:A graph-based system that maps the argumentative structure of online conversations — extracting claims, detecting rhetorical moves, scoring influence, and making any thread semantically queryable.\n\n"
-    prompt += "Context: passed a representative dictionary containing ( body, cluster, influence, author and outlier score) Return a thread verdict summary based on the findings from a graph analysis system, not reading raw comments.Based on graph analysis, these are the most influential arguments per cluster,etc...\n\n"
-    prompt += "Consensus: reflect consensus or lack of it"
 
-    for rep in representatives:
-        prompt += f"Cluster {rep['cluster']} | Influence: {rep['influence']:.2f}\n"
-        prompt += f"Author: {rep['author']}\n"
-        prompt += f"Argument: {rep['body'][:100]}\n\n"
 
-    prompt += "Generate a Thread Verdict: one paragraph summarizing the overall argumentative structure of the thread based ONLY on the provided graph findings. Identify the dominant viewpoints, major disagreements, and the most influential positions. If the thread lacks consensus, explicitly describe the division. Ground the verdict in the cluster representatives, influence scores, and graph relationships rather than raw comment frequency. Maintain a neutral, analytical tone and avoid inventing arguments not present in the data."
+def build_prompt(nodes, all_comments):
+    total = len(all_comments)
+    max_inf = max(c['influence'] for c in all_comments)
+    avg_inf = sum(c['influence'] for c in all_comments) / total
+
+    prompt = "You are ARGUS — a graph-based argument analysis system. Speak as an analyst reporting graph findings, not as someone reading comments.\n\n"
+
+    prompt += f"THREAD STATISTICS:\n"
+    prompt += f"- Total comments analyzed: {total}\n"
+    prompt += f"- Max influence score: {max_inf:.2f}\n"
+    prompt += f"- Average influence score: {avg_inf:.2f}\n"
+    prompt += f"- Distinct argument clusters: {len(nodes)}\n\n"
+
+    prompt += "CLUSTER REPRESENTATIVES (highest influence node per cluster):\n\n"
+
+    for rep in nodes:
+        prompt += f"[Cluster {rep['cluster']}] Influence: {rep['influence']:.2f} | Author: {rep['author']}\n"
+        prompt += f"Position: {rep['body'][:200]}\n\n"   # 200 chars, not 100
+
+    prompt += """
+TASK: Generate a structured Thread Verdict as a JSON object only. No prose before or after. No markdown.
+
+Reasoning requirements before writing the verdict:
+- Which cluster holds the dominant influence? Is it significantly higher than others?
+- Are clusters arguing opposing positions or parallel ones?
+- Is there a clear winner in the discourse, or genuine division?
+- What is the structural shape of this conversation — consensus, bipolar split, fragmented, or one-sided?
+
+Return exactly:
+{
+  "verdict": "2-3 sentence analytical summary grounded in influence scores and cluster structure, not comment content alone",
+  "dominant_cluster": <cluster_id of highest total influence>,
+  "structural_shape": "consensus | bipolar_split | fragmented | one_sided",
+  "key_arguments": ["claim from cluster X", "claim from cluster Y", "claim from cluster Z"],
+  "confidence": "high | medium | low"
+}"""
 
     return prompt
 
-def generate_verdict(representatives):
-    prompt = build_prompt(representatives)
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-lite",
-        contents=prompt
-    )
-    print(response.text)
 
-generate_verdict(representatives)
+def get_top_nodes(all_comments, n = 10):
+    srt_comm = sorted(all_comments, key=lambda x: x['influence'], reverse=True)
+    top = []
+    for com in srt_comm[:n]:
+        top.append({"body":com['body'], "influence":com['influence'], "cluster":com['cluster'], "author": com['author']})
+    return top
+
+def generate_verdict(all_comments, representatives):
+    if len(all_comments) > 100:
+        nodes = get_top_nodes(all_comments, n=10)
+    else:
+        nodes = representatives
+    prompt = build_prompt(nodes, all_comments)
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    raw = response.choices[0].message.content
+    try:
+        result = json_parser.loads(raw)
+        print(json_parser.dumps(result, indent=2))
+    except json_parser.JSONDecodeError:
+        print("LLM didn't return valid JSON. Raw output:")
+        print(raw)
+
+
+generate_verdict(all_comments, representatives)

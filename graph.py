@@ -4,6 +4,7 @@ import numpy as np
 import os
 import json
 import sys
+from utils import extract_comments
 
 load_dotenv()
 
@@ -14,17 +15,12 @@ driver = GraphDatabase.driver(URI, auth=(USERNAME, PASSWORD))
 
 with open("thread_final.json", encoding="utf-8") as file:
     comments = json.load(file)
-all_comments = []
 
 
 #-----------EXTRACT COMMENTS---------------#
-def extract_comments(comment):
-    all_comments.append(comment)
-    for reply in comment.get('replies', []):
-        extract_comments(reply)
-
+all_comments = []
 for comment in comments:
-    extract_comments(comment)
+    extract_comments(comment, all_comments)
 
 
 #-----------COMMENT NODES---------------#

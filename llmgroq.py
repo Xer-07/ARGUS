@@ -11,6 +11,7 @@ import json as json_parser
 from groq import Groq
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
+from utils import extract_comments
 
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -23,29 +24,10 @@ with open("thread_final.json", 'r', encoding='utf-8') as f:
     comments = json.load(f)
 
 all_comments = []
-def extract_comments(comment):
-    all_comments.append(comment)
-    for reply in comment.get('replies', []):
-        extract_comments(reply)
-
 for comment in comments:
-    extract_comments(comment)
+    extract_comments(comment, all_comments)
 
-embeddings = np.array([comment['embedding'] for comment in all_comments])
-inertias = []
-
-k_range = range(2, 10)
-for k in k_range:
-    kmeans = KMeans(n_clusters=k, random_state=42).fit(embeddings)
-    inertias.append(kmeans.inertia_)
-
-drops = [inertias[i] - inertias[i+1] for i in range(len(inertias)-1)]
-best_k = k_range[drops.index(max(drops)) + 1]
-
-kmeans = KMeans(best_k, random_state=42).fit(embeddings)
-
-for i, comment in enumerate(all_comments):
-    comment['cluster'] = int(kmeans.labels_[i])
+best_k = len(set(c['cluster'] for c in all_comments))
 
 def get_representative(cluster):
     rep = max(cluster, key=lambda c: c['influence'])
@@ -144,6 +126,6 @@ def query_thread(question, all_comments, top_k=5):
         })
     return results
 
-results = query_thread("will AI replace software jobs?", all_comments)
+results = query_thread("why did people get disqualified for cheating?", all_comments)
 for r in results:
     print(r)

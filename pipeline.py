@@ -2,6 +2,7 @@ import json
 import numpy as np
 import uuid
 from sklearn.cluster import KMeans
+from utils import extract_comments
 
 #--------------Load----------
 
@@ -13,17 +14,18 @@ with open("thread_embeddings.json", 'r', encoding='utf-8') as f:
 #----------Flatten-----------
 
 all_comments = []
-def extract_comments(comment):
-    if 'id' not in comment:
-        comment['id'] = str(uuid.uuid4())
-    all_comments.append(comment)
-    for reply in comment.get('replies', []):
-        extract_comments(reply)
-
 for comment in comments:
-    extract_comments(comment)
+    extract_comments(comment, all_comments)
 
+ids = [c["id"] for c in all_comments]
 
+print("Total comments:", len(ids))
+print("Unique comments:", len(set(ids)))
+
+if len(ids) != len(set(ids)):
+    print("DUPLICATES DETECTED")
+else:
+    print("NO DUPLICATES")
 
 #---------KMeans----------
 
@@ -95,11 +97,13 @@ def cos_sim(a, b):
 
 def avg_dist(embedding, centroids):
     distances = []
+
     for centroid in centroids:
         sim = cos_sim(embedding, centroid)
         dist = 1 - sim
         distances.append(dist)
-        return np.mean(distances)
+
+    return np.mean(distances)
 
 centroids = kmeans.cluster_centers_
 
