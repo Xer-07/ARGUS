@@ -19,9 +19,6 @@ for comment in comments:
 
 ids = [c["id"] for c in all_comments]
 
-print("Total comments:", len(ids))
-print("Unique comments:", len(set(ids)))
-
 if len(ids) != len(set(ids)):
     print("DUPLICATES DETECTED")
 else:

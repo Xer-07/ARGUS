@@ -1,8 +1,6 @@
 import json
 from dotenv import load_dotenv
 import os
-print(os.getlogin())
-print(os.path.expanduser("~"))
 os.environ["HF_HOME"] = r"C:\Ganesh\hf_cache"
 os.environ["HUGGINGFACE_HUB_CACHE"] = r"C:\Ganesh\hf_cache"
 import numpy as np
@@ -126,6 +124,6 @@ def query_thread(question, all_comments, top_k=5):
         })
     return results
 
-results = query_thread("why did people get disqualified for cheating?", all_comments)
+results = query_thread("why reddit is denying access?", all_comments)
 for r in results:
     print(r)
