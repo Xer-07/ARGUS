@@ -4,12 +4,10 @@ import os
 os.environ["HF_HOME"] = r"C:\Ganesh\hf_cache"
 os.environ["HUGGINGFACE_HUB_CACHE"] = r"C:\Ganesh\hf_cache"
 import numpy as np
-from sklearn.cluster import KMeans
 import json as json_parser
 from groq import Groq
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
-from utils import extract_comments
 
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -18,26 +16,6 @@ model = SentenceTransformer(
     cache_folder=r"C:\Ganesh\hf_cache"
 )
 
-with open("thread_final.json", 'r', encoding='utf-8') as f:
-    comments = json.load(f)
-
-all_comments = []
-for comment in comments:
-    extract_comments(comment, all_comments)
-
-best_k = len(set(c['cluster'] for c in all_comments))
-
-def get_representative(cluster):
-    rep = max(cluster, key=lambda c: c['influence'])
-    return rep
-representatives = []
-cluster_stats = []
-for cluster_id in range(best_k):
-    cluster = [c for c in all_comments if c['cluster'] == cluster_id]
-    rep = get_representative(cluster)
-    representatives.append(rep)
-    cluster_stats.append({"cluster_id": cluster_id, "size": len(cluster), "total_influence": sum(c['influence'] for c in cluster) ,  "avg_influence" : np.mean([c['influence'] for c in cluster]), "representative": get_representative(cluster)["body"][:200]})
-dominant_cluster = max(cluster_stats, key=lambda x: x["total_influence"])["cluster_id"]
 
 def build_prompt(nodes, all_comments, cluster_stats, dominant_cluster):
     total = len(all_comments)
@@ -88,7 +66,7 @@ def get_top_nodes(all_comments, n = 10):
         top.append({"body":com['body'], "influence":com['influence'], "cluster":com['cluster'], "author": com['author']})
     return top
 
-def generate_verdict(all_comments, representatives):
+def generate_verdict(all_comments, representatives, cluster_stats, dominant_cluster):
     if len(all_comments) > 100:
         nodes = get_top_nodes(all_comments, n=10)
     else:
@@ -101,13 +79,9 @@ def generate_verdict(all_comments, representatives):
     raw = response.choices[0].message.content
     try:
         result = json_parser.loads(raw)
-        print(json_parser.dumps(result, indent=2))
+        return result  # ← return, not print
     except json_parser.JSONDecodeError:
-        print("LLM didn't return valid JSON. Raw output:")
-        print(raw)
-
-
-generate_verdict(all_comments, representatives)
+        return {"error": "LLM returned invalid JSON", "raw": raw}
 
 def query_thread(question, all_comments, top_k=5):
     embed_q = model.encode(question).tolist()
@@ -124,6 +98,16 @@ def query_thread(question, all_comments, top_k=5):
         })
     return results
 
-results = query_thread("why reddit is denying access?", all_comments)
-for r in results:
-    print(r)
+if __name__ == "__main__":
+    from pipeline import cluster_and_score
+
+    with open("thread_final.json", 'r', encoding='utf-8') as f:
+        all_comments = json.load(f)  # already flat — no extract_comments needed
+
+    all_comments, cluster_stats, dominant_cluster, representatives = cluster_and_score(all_comments)
+    verdict = generate_verdict(all_comments, representatives, cluster_stats, dominant_cluster)
+    print(json_parser.dumps(verdict, indent=2))
+
+    results = query_thread("How much money was required in 1998 to live comfortably?", all_comments)
+    for r in results:
+        print(r)
