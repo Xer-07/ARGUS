@@ -83,7 +83,7 @@ Reddit URL
 - [x] Typed edge classification (supports / contradicts / extends)
 
 **Phase 3–6**
-- [ ] Gemini LLM summarization
+- [x] Gemini LLM summarization
 - [ ] FastAPI backend
 - [ ] Streamlit frontend
 - [ ] Deployment
