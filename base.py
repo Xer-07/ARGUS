@@ -5,10 +5,6 @@ from playwright.sync_api import sync_playwright
 
 
 def fetch_more_children(page, link_id, children_ids):
-    """
-    Queries Reddit's backend to expand hidden branches using the active session.
-    Uses an internal relative URI path to bypass browser Content Security Policy (CSP) locks.
-    """
     chunk_size = 30
     all_fetched_children = []
 
@@ -64,50 +60,39 @@ def fetch_more_children(page, link_id, children_ids):
             page.wait_for_timeout(350)
 
         except Exception as e:
-            print(f"⚠️ Error expanding hidden reply chunk: {e}")
+            print(f"Error expanding hidden reply chunk: {e}")
             continue
 
     return all_fetched_children
 
 
 def build_nested_tree_robust(comment_map, root_link_id):
-    """
-    FIX: Assembles flat data maps by reference links instead of deep recursion loops.
-    This architecture captures 100% of data, protecting against missing parent nodes.
-    """
     nodes_dict = {}
     root_comments = []
 
-    # Step 1: Initialize standardized dictionary structures for all comments
     for c_id, raw_node in comment_map.items():
         nodes_dict[c_id] = {
             'author': raw_node['author'],
             'id': c_id,
             'body': raw_node['body'],
             'score': raw_node['score'],
-            'depth': 0,  # Depth will be calculated dynamically in Step 3
+            'depth': 0,
             'replies': [],
             '_parent_id': raw_node['_parent_id']
         }
 
-    # Step 2: Wire up parent-child relationships using pointer references
     for c_id, node in nodes_dict.items():
         pid = node['_parent_id']
 
-        # Clean parent tag context markers
         parent_clean_id = pid[3:] if pid and pid.startswith("t1_") else None
 
         if parent_clean_id and parent_clean_id in nodes_dict:
-            # Connect the comment straight to its parent's replies list in memory
             nodes_dict[parent_clean_id]['replies'].append(node)
         else:
-            # Connect orphan branches directly to the root layout level
             root_comments.append(node)
 
-    # Sort root-level comments deterministically
     root_comments.sort(key=lambda x: x['id'])
 
-    # Step 3: Run a light calculation loop to set correct depth integers
     def calculate_depth_recursively(nodes_list, current_depth):
         for node in nodes_list:
             node['depth'] = current_depth
@@ -120,12 +105,8 @@ def build_nested_tree_robust(comment_map, root_link_id):
 
 
 def fetch_thread(url):
-    """
-    Deep-crawls all levels of the thread data layer to guarantee 100% extraction accuracy.
-    """
     if "/comment/" in url:
         url = url.split("/comment/")[0]
-
     if url.endswith(".json"):
         url = url.replace(".json", "")
 
@@ -207,12 +188,12 @@ def fetch_thread(url):
         process_raw_nodes(initial_children)
 
         if more_nodes_queue:
-            print("🔍 Uncovering hidden sub-branches...")
+            print(" Uncovering hidden sub-branches...")
             while more_nodes_queue:
                 current_batch = more_nodes_queue.copy()
                 more_nodes_queue.clear()
 
-                print(f"   ↳ Expanding {len(current_batch)} deep comment branches...")
+                print(f"   Expanding {len(current_batch)} deep comment branches...")
                 expanded_nodes = fetch_more_children(page, link_id, current_batch)
 
                 if not expanded_nodes:
@@ -223,7 +204,7 @@ def fetch_thread(url):
         browser.close()
 
         print("\n[DEBUG] Pre-Tree Assembly Status Check:")
-        print(f"   ↳ Total comments captured in flat map: {len(comment_map)}")
+        print(f"    Total comments captured in flat map: {len(comment_map)}")
 
         print("\nReassembling flat data map into hierarchical tree branches...")
         final_tree = build_nested_tree_robust(comment_map, root_link_id=link_id)
@@ -231,9 +212,6 @@ def fetch_thread(url):
 
 
 def clean_comments(raw_comments):
-    """
-    Cleans metadata labels without breaking recursive nested trees.
-    """
     cleaned = []
     if not raw_comments:
         return cleaned
@@ -272,9 +250,6 @@ def count_comments(comments_list):
 
 
 def extract_all_ids_recursively(comments_list):
-    """
-    Deeply crawls every tier of the dictionary architecture to compile an accurate audit log.
-    """
     collected_ids = []
     if not comments_list:
         return collected_ids
@@ -296,10 +271,10 @@ if __name__ == "__main__":
 
     print("\n Fetching entire post thread...")
     raw_comments = fetch_thread(url)
-    print(f"✓ Fetched {len(raw_comments)} top-level root branches")
+    print(f" Fetched {len(raw_comments)} top-level root branches")
 
     raw_c, raw_r = count_comments(raw_comments)
-    print(f"📊 RAW TOTAL RETRIEVED (Before Cleaning Filters): {raw_c + raw_r}")
+    print(f" RAW TOTAL RETRIEVED (Before Cleaning Filters): {raw_c + raw_r}")
 
     print("\n Cleaning comments...")
     cleaned = clean_comments(raw_comments)
@@ -307,27 +282,27 @@ if __name__ == "__main__":
 
     print("\n Counting total comments and nested replies...")
     c, r = count_comments(cleaned)
-    print(f"✓ Total top-level root sections: {c}")
-    print(f"✓ Total nested replies (all depths): {r}")
-    print(f"✓ Grand Total Saved: {c + r}")
+    print(f" Total top-level root sections: {c}")
+    print(f" Total nested replies (all depths): {r}")
+    print(f" Grand Total Saved: {c + r}")
 
     print("\n Saving to JSON...")
     save_comments(cleaned, "thread_comments.json")
-    print(f"✓ Saved fully nested structure to thread_comments.json")
+    print(f" Saved fully nested structure to thread_comments.json")
 
     print("\n Running Integrity & Duplicate Audits...")
     all_extracted_ids = extract_all_ids_recursively(cleaned)
     total_ids = len(all_extracted_ids)
     unique_ids = len(set(all_extracted_ids))
 
-    print(f"   ↳ Total ID count processed: {total_ids}")
-    print(f"   ↳ Unique ID count verified: {unique_ids}")
+    print(f"Total ID count processed: {total_ids}")
+    print(f"Unique ID count verified: {unique_ids}")
 
     if total_ids == unique_ids:
-        print("   ✅ DATA INTEGRITY VERIFIED: Zero duplicate comments across all nesting tree branches!")
+        print("DATA INTEGRITY VERIFIED: Zero duplicate comments across all nesting tree branches!")
     else:
         duplicates_count = total_ids - unique_ids
-        print(f"   ⚠️ WARNING: Detected {duplicates_count} duplicate elements inside the nested trees.")
+        print(f"WARNING: Detected {duplicates_count} duplicate elements inside the nested trees.")
 
     print("\n" + "=" * 80)
     print("DONE! Check thread_comments.json")
