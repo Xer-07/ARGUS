@@ -24,50 +24,81 @@ for comment in comments:
 
 
 #-----------COMMENT NODES---------------#
-def comment_nodes(driver,Comment):
-    summary = driver.execute_query(""" CREATE (c:Comment {author: $author, body: $body, score: $score, depth: $depth, cluster: $cluster, influence: $influence})""", author = Comment['author'], body = Comment['body'], score = Comment['score'], depth = Comment['depth'], cluster = Comment['cluster'], influence = Comment['influence']).summary
+def comment_nodes(driver,all_comments):
+    summary = driver.execute_query(""" UNWIND $comments AS comment CREATE (c:Comment {
+            author: comment.author,
+            id: comment.id,
+            body: comment.body,
+            score: comment.score,
+            depth: comment.depth,
+            cluster: comment.cluster,
+            influence: comment.influence})""", comments=all_comments).summary
+
     print("Created {nodes_created} nodes in {time} ms.".format(
         nodes_created=summary.counters.nodes_created,
         time=summary.result_available_after
     ))
 
-for c in all_comments:
-    comment_nodes(driver,c)
-
+comment_nodes(driver, all_comments)
 
 #-------CLASSIFY--------------#
 def classify_relationship(similarity):
     relationship = ''
-    if similarity > 0.7:
-        relationship = "supports"
-    elif similarity < 0.3:
-        relationship =  "contradicts"
+    if similarity > 0.5:
+        relationship = "SUPPORTS"
+    elif similarity < 0.4:
+        relationship =  "CONTRADICTS"
     else:
         pass
     return relationship
 
 
 #-------EDGES--------------#
-def create_edge(driver, body_a, body_b, relationship):
-    driver.execute_query("""
-            MATCH (a:Comment {body: $body_a})
-            MATCH (b:Comment {body: $body_b})
-            CREATE (a)-[:""" + relationship + """]->(b)
-        """, body_a=body_a, body_b=body_b)
+def create_edge(edges):
+    supports = [e for e in edges if e["type"] == "SUPPORTS"]
+    contradicts = [e for e in edges if e["type"] == "CONTRADICTS"]
+
+    summary_supp = driver.execute_query(
+        """UNWIND $edges AS edge 
+           MATCH (a:Comment {id: edge.source}) 
+           MATCH (b:Comment {id: edge.target}) 
+           CREATE (a)-[:SUPPORTS]->(b)""",
+        edges=supports
+    ).summary
+
+    summary_cont = driver.execute_query(
+        """UNWIND $edges AS edge 
+           MATCH (a:Comment {id: edge.source}) 
+           MATCH (b:Comment {id: edge.target}) 
+           CREATE (a)-[:CONTRADICTS]->(b)""",
+        edges=contradicts
+    ).summary
+
+    print(f"Created {summary_supp.counters.relationships_created} SUPPORTS edges")
+    print(f"Created {summary_cont.counters.relationships_created} CONTRADICTS edges")
 
 #-------SIMILARITY--------------#
 def cos_sim(a,b):
     return np.dot(a,b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
-for i in range(len(all_comments)):
-    for j in range(i+1, len(all_comments)):
-        a = all_comments[i]
-        b = all_comments[j]
-        sim = cos_sim(np.array(a['embedding']), np.array(b['embedding']))
-        rel = classify_relationship(sim)
-        if rel:
-            create_edge(driver, a['body'], b['body'], rel)
+edges = []
+cluster_map = {}
 
+for comment in all_comments:
+    cluster_map.setdefault(comment["cluster"], []).append(comment)
 
+for cluster_comments in cluster_map.values():
+    for i in range(len(cluster_comments)):
+        for j in range(i+1, len(cluster_comments)):
+            sim = cos_sim(cluster_comments[i]["embedding"], cluster_comments[j]["embedding"])
+            rel = classify_relationship(sim)
+            if rel:
+                edges.append({
+                    "source": cluster_comments[i]["id"],
+                    "target": cluster_comments[j]["id"],
+                    "type": rel
+                })
+
+create_edge(edges)
 driver.close()
 sys.exit(0)
