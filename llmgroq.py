@@ -79,7 +79,7 @@ def generate_verdict(all_comments, representatives, cluster_stats, dominant_clus
     raw = response.choices[0].message.content
     try:
         result = json_parser.loads(raw)
-        return result  # ← return, not print
+        return result
     except json_parser.JSONDecodeError:
         return {"error": "LLM returned invalid JSON", "raw": raw}
 
