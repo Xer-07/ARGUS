@@ -46,7 +46,7 @@ def classify_relationship(similarity):
     relationship = ''
     if similarity > 0.5:
         relationship = "SUPPORTS"
-    elif similarity < 0.4:
+    elif similarity < 0.25:
         relationship =  "CONTRADICTS"
     else:
         pass

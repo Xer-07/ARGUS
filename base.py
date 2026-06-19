@@ -227,6 +227,9 @@ def clean_comments(raw_comments):
         if body in ["[deleted]", "[removed]"]:
             cleaned_comment['body'] = "[Content removed by user or moderator]"
 
+        if len(body.split()) < 5:
+            continue
+
         if 'replies' in cleaned_comment and cleaned_comment['replies']:
             cleaned_comment['replies'] = clean_comments(cleaned_comment['replies'])
 
