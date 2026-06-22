@@ -46,6 +46,8 @@ def classify_relationship(similarity):
     relationship = ''
     if similarity > 0.5:
         relationship = "SUPPORTS"
+    elif 0.4 < similarity < 0.5:
+        relationship = "EXTENDS"
     elif similarity < 0.25:
         relationship =  "CONTRADICTS"
     else:
@@ -57,6 +59,7 @@ def classify_relationship(similarity):
 def create_edge(edges):
     supports = [e for e in edges if e["type"] == "SUPPORTS"]
     contradicts = [e for e in edges if e["type"] == "CONTRADICTS"]
+    extends = [e for e in edges if e["type"] == "EXTENDS"]
 
     summary_supp = driver.execute_query(
         """UNWIND $edges AS edge 
@@ -64,6 +67,14 @@ def create_edge(edges):
            MATCH (b:Comment {id: edge.target}) 
            CREATE (a)-[:SUPPORTS]->(b)""",
         edges=supports
+    ).summary
+
+    summary_ext = driver.execute_query(
+        """UNWIND $edges AS edge 
+           MATCH (a:Comment {id: edge.source}) 
+           MATCH (b:Comment {id: edge.target}) 
+           CREATE (a)-[:EXTENDS]->(b)""",
+        edges=extends
     ).summary
 
     summary_cont = driver.execute_query(
@@ -75,7 +86,8 @@ def create_edge(edges):
     ).summary
 
     print(f"Created {summary_supp.counters.relationships_created} SUPPORTS edges")
-    print(f"Created {summary_cont.counters.relationships_created} CONTRADICTS edges")
+    print(f"Created {summary_ext.counters.relationships_created} CONTRADICTS edges")
+    print(f"Created {summary_cont.counters.relationships_created} EXTENDS edges")
 
 #-------SIMILARITY--------------#
 def cos_sim(a,b):
