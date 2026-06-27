@@ -6,15 +6,11 @@ os.environ["HUGGINGFACE_HUB_CACHE"] = r"C:\Ganesh\hf_cache"
 import numpy as np
 import json as json_parser
 from groq import Groq
-from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-model = SentenceTransformer(
-    "all-MiniLM-L6-v2",
-    cache_folder=r"C:\Ganesh\hf_cache"
-)
+
 
 
 def build_prompt(nodes, all_comments, cluster_stats, dominant_cluster):
@@ -83,7 +79,7 @@ def generate_verdict(all_comments, representatives, cluster_stats, dominant_clus
     except json_parser.JSONDecodeError:
         return {"error": "LLM returned invalid JSON", "raw": raw}
 
-def query_thread(question, all_comments, top_k=5):
+def query_thread(question, all_comments,model, top_k=5):
     embed_q = model.encode(question).tolist()
     embeddings = np.array([comment['embedding'] for comment in all_comments])
     scores = cosine_similarity([embed_q], embeddings)[0]

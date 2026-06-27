@@ -86,8 +86,8 @@ def create_edge(edges):
     ).summary
 
     print(f"Created {summary_supp.counters.relationships_created} SUPPORTS edges")
-    print(f"Created {summary_ext.counters.relationships_created} CONTRADICTS edges")
-    print(f"Created {summary_cont.counters.relationships_created} EXTENDS edges")
+    print(f"Created {summary_ext.counters.relationships_created} EXTENDS edges")
+    print(f"Created {summary_cont.counters.relationships_created} CONTRADICTS edges")
 
 #-------SIMILARITY--------------#
 def cos_sim(a,b):
