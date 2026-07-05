@@ -7,6 +7,8 @@ import numpy as np
 import json as json_parser
 from groq import Groq
 from sklearn.metrics.pairwise import cosine_similarity
+from sentence_transformers import SentenceTransformer
+model = SentenceTransformer("all-MiniLM-L6-v2", cache_folder=r"C:\Ganesh\hf_cache")
 
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -100,10 +102,10 @@ if __name__ == "__main__":
     with open("thread_final.json", 'r', encoding='utf-8') as f:
         all_comments = json.load(f)  # already flat — no extract_comments needed
 
-    all_comments, cluster_stats, dominant_cluster, representatives = cluster_and_score(all_comments)
+    all_comments, cluster_stats, dominant_cluster, representatives, outlier = cluster_and_score(all_comments)
     verdict = generate_verdict(all_comments, representatives, cluster_stats, dominant_cluster)
     print(json_parser.dumps(verdict, indent=2))
 
-    results = query_thread("How much money was required in 1998 to live comfortably?", all_comments)
+    results = query_thread("How much money was required in 1998 to live comfortably?", all_comments, model)
     for r in results:
         print(r)

@@ -13,15 +13,6 @@ USERNAME = os.getenv("NEO4J_USERNAME")
 PASSWORD = os.getenv("NEO4J_PASSWORD")
 driver = GraphDatabase.driver(URI, auth=(USERNAME, PASSWORD))
 
-with open("thread_final.json", encoding="utf-8") as file:
-    comments = json.load(file)
-
-
-#-----------EXTRACT COMMENTS---------------#
-all_comments = []
-for comment in comments:
-    extract_comments(comment, all_comments)
-
 
 #-----------COMMENT NODES---------------#
 def comment_nodes(driver,all_comments):
@@ -38,8 +29,6 @@ def comment_nodes(driver,all_comments):
         nodes_created=summary.counters.nodes_created,
         time=summary.result_available_after
     ))
-
-comment_nodes(driver, all_comments)
 
 #-------CLASSIFY--------------#
 def classify_relationship(similarity):
@@ -93,24 +82,33 @@ def create_edge(edges):
 def cos_sim(a,b):
     return np.dot(a,b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
-edges = []
-cluster_map = {}
+def query_graph(ids, driver):
+    records = driver.execute_query("""MATCH (a:Comment) - [r] -> (b:Comment) WHERE a.id IN $ids AND b.id IN $ids RETURN a.id, a.author, a.influence, a.cluster, a.body, type(r) AS relationship, b.id, b.author, b.influence, b.cluster, b.body""", ids=ids).records
+    return records
 
-for comment in all_comments:
-    cluster_map.setdefault(comment["cluster"], []).append(comment)
 
-for cluster_comments in cluster_map.values():
-    for i in range(len(cluster_comments)):
-        for j in range(i+1, len(cluster_comments)):
-            sim = cos_sim(cluster_comments[i]["embedding"], cluster_comments[j]["embedding"])
-            rel = classify_relationship(sim)
-            if rel:
-                edges.append({
-                    "source": cluster_comments[i]["id"],
-                    "target": cluster_comments[j]["id"],
-                    "type": rel
-                })
-
-create_edge(edges)
-driver.close()
-sys.exit(0)
+if __name__ == "__main__":
+    with open("thread_final.json", 'r', encoding='utf-8') as file:
+        comments = json.load(file)
+    all_comments = []
+    for comment in comments:
+        extract_comments(comment, all_comments)
+    edges = []
+    cluster_map = {}
+    for comment in all_comments:
+        cluster_map.setdefault(comment["cluster"], []).append(comment)
+    for cluster_comments in cluster_map.values():
+            for i in range(len(cluster_comments)):
+                for j in range(i + 1, len(cluster_comments)):
+                    sim = cos_sim(cluster_comments[i]["embedding"], cluster_comments[j]["embedding"])
+                    rel = classify_relationship(sim)
+                    if rel:
+                        edges.append({
+                            "source": cluster_comments[i]["id"],
+                            "target": cluster_comments[j]["id"],
+                            "type": rel
+                        })
+    comment_nodes(driver, all_comments)
+    create_edge(edges)
+    driver.close()
+    sys.exit(0)

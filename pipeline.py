@@ -1,6 +1,5 @@
 import json
 import numpy as np
-import uuid
 from sklearn.cluster import KMeans
 from utils import extract_comments
 
@@ -25,12 +24,6 @@ def cluster_and_score(all_comments):
 
     for i, comment in enumerate(all_comments):
         comment['cluster'] = int(kmeans.labels_[i])
-
-    for i in range(best_k):
-        print(f"\n--- Cluster {i} ---")
-        for comment in all_comments:
-            if comment['cluster'] == i:
-                print(comment['body'][:100])
 
 
 
@@ -107,7 +100,7 @@ def cluster_and_score(all_comments):
         })
     dominant_cluster = max(cluster_stats, key=lambda x: x["total_influence"])["cluster_id"]
 
-    return all_comments, cluster_stats, dominant_cluster, representatives
+    return all_comments, cluster_stats, dominant_cluster, representatives, outlier
 
 # Save
 
@@ -118,7 +111,7 @@ if __name__ == "__main__":
     all_comments = []
     for c in comments:
         extract_comments(c, all_comments)
-    all_comments, cluster_stats, dominant_cluster, representatives = cluster_and_score(all_comments)
+    all_comments, cluster_stats, dominant_cluster, representatives, outlier = cluster_and_score(all_comments)
     with open("thread_final.json", 'w', encoding='utf-8') as f:
         json.dump(all_comments, f, ensure_ascii=False, indent=4)
     print("cluster_stats:", cluster_stats)
