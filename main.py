@@ -12,6 +12,7 @@ from db import init_db, get_cached, save_cache
 import hashlib
 import json
 from neo4j import GraphDatabase
+from fastapi.middleware.cors import CORSMiddleware
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -28,7 +29,12 @@ driver = GraphDatabase.driver(
 init_db()
 app = FastAPI()
 model = SentenceTransformer("all-MiniLM-L6-v2", cache_folder=r"C:\Ganesh\hf_cache")
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class AnalyzeRequest(BaseModel):
     url: str
