@@ -84,9 +84,9 @@ Reddit URL
 
 **Phase 3–6**
 - [x] Gemini LLM summarization
-- [ ] FastAPI backend
-- [ ] Streamlit frontend
-- [ ] Deployment
+- [x] FastAPI backend
+- [ ] React frontend
+- [ ] Docker + Vercel Deployment
 
 ---
 
