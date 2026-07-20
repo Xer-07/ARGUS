@@ -1,33 +1,46 @@
-import { useEffect } from 'react'
+import { useState } from 'react'
+import ThreadInput from './components/ThreadInput'
+// TODO: import ThreadVerdict, ArgumentClusters, OutlierCard once you build them
 
 function App() {
+  const [analysisResult, setAnalysisResult] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
-  useEffect(() => {
-    async function testFetch() {
-      try {
-        const response = await fetch('http://localhost:8000/analyze', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-           body: JSON.stringify({ url: 'https://www.reddit.com/r/reactjs/comments/11cyejn/what_is_cors_and_why_is_it_so_annoying/' })
-        })
+  async function handleAnalyze(url) {
+    setLoading(true)
+    setError(null)
 
-        // 
-        const data = await response.json()
+    try {
+      const response = await fetch('http://localhost:8000/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ url })
+      })
 
-        console.log('ARGUS response:', data)
-      } catch (err) {
-        console.error('Fetch failed:', err)
+      if(!response.ok) {
+        throw new Error(`Server error: ${response.status}`)
       }
-    }
+      const data = await response.json()
+      setAnalysisResult(data)
 
-    testFetch()
-  }, []) // empty dependency array = run once on mount, don't touch this yet
+    } catch (err) {
+      setError(err.message)
+    } finally {
+    setLoading(false)
+  }
+  }
 
   return (
     <div>
-      <h1>ARGUS Test</h1>
+      <h1>ARGUS</h1>
+      <ThreadInput onAnalyze={handleAnalyze} loading={loading} />
+
+      {error && <p style={{color: 'red'}}>{error}</p>}
+
+      {analysisResult && (<pre>{JSON.stringify(analysisResult, null, 2)}</pre>)}
     </div>
   )
 }
